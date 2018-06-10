@@ -1,0 +1,64 @@
+/* 
+==============================================
+CONTENT:	Project Name Here
+AUTHOR:		Your Name Here
+==============================================
+
+TABLE OF CONTENTS:
+
+0. Reset
+1. Main Layout
+2. Content
+
+==============================================
+*/
+
+/* 0. Reset ================================= */
+@import 'reset';
+
+@font-face {
+	font-family: "Caviar Dreams";
+	src: url(../../dist/fonts/Caviar-Dreams/CaviarDreams.ttf);
+}
+
+
+/* 1. Main Layout ================================= */
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	background: url(../../dist/img/bg-1.jpg) no-repeat center center fixed;
+	background-size: cover;
+	font-family: 'Caviar Dreams';
+	color: #fff;
+	animation: ani-bg 20s infinite;
+}
+
+
+
+
+/* 2. Content ================================= */
+
+header {
+	display: flex;
+	justify-content: space-between;
+	padding: 0.5em 5%;
+}
+
+
+
+@keyframes ani-bg {
+	0% {background-color: rgba(119, 77, 192, 0.4);
+    	background-blend-mode: luminosity;}
+    25% {background-color: rgba(192, 77, 106, 0.7);
+    	background-blend-mode: luminosity;}
+    50% {background-color: rgba(23, 216, 242, 0.6);
+    	background-blend-mode: luminosity;}
+    75% {background-color: rgba(144, 216, 20, 0.5);
+    	background-blend-mode: luminosity;}
+    100% {background-color: rgba(119, 77, 192, 0.4);
+    	background-blend-mode: luminosity;}
+}
+
