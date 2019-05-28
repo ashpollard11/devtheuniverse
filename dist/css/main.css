@@ -1,7 +1,7 @@
 /* 
 ==============================================
-CONTENT:	Project Name Here
-AUTHOR:		Your Name Here
+CONTENT:	My Portfolio
+AUTHOR:		Ashley Pollard
 ==============================================
 
 TABLE OF CONTENTS:
@@ -67,6 +67,90 @@ table {
 	border-spacing: 0;
 }
 
+/*!
+ * Hamburgers
+ * @description Tasty CSS-animated hamburgers
+ * @author Jonathan Suh @jonsuh
+ * @site https://jonsuh.com/hamburgers
+ * @link https://github.com/jonsuh/hamburgers
+ */
+.hamburger {
+	padding: 15px 15px;
+	display: inline-block;
+	cursor: pointer;
+	transition-property: opacity, filter;
+	transition-duration: 0.15s;
+	transition-timing-function: linear;
+	font: inherit;
+	color: inherit;
+	text-transform: none;
+	background-color: transparent;
+	border: 0;
+	margin: 0;
+	overflow: visible;
+}
+
+.hamburger:hover {
+	opacity: 0.7;
+}
+
+.hamburger-box {
+	width: 40px;
+	height: 18px;
+	display: inline-block;
+	position: relative;
+}
+
+.hamburger-inner {
+	display: block;
+	top: 50%;
+	margin-top: -1px;
+}
+
+.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+	width: 40px;
+	height: 2px;
+	background-color: #fff;
+	border-radius: 4px;
+	position: absolute;
+	transition-property: transform;
+	transition-duration: 0.15s;
+	transition-timing-function: ease;
+}
+
+.hamburger-inner::before, .hamburger-inner::after {
+	content: "";
+	display: block;
+}
+
+.hamburger-inner::before {
+	top: -8px;
+}
+
+.hamburger-inner::after {
+	bottom: -8px;
+}
+
+/*
+   * Minus
+   */
+.hamburger--minus .hamburger-inner::before, .hamburger--minus .hamburger-inner::after {
+	transition: bottom 0.08s 0s ease-out, top 0.08s 0s ease-out, opacity 0s linear;
+}
+
+.hamburger--minus.is-active .hamburger-inner::before, .hamburger--minus.is-active .hamburger-inner::after {
+	opacity: 0;
+	transition: bottom 0.08s ease-out, top 0.08s ease-out, opacity 0s 0.08s linear;
+}
+
+.hamburger--minus.is-active .hamburger-inner::before {
+	top: 0;
+}
+
+.hamburger--minus.is-active .hamburger-inner::after {
+	bottom: 0;
+}
+
 @font-face {
 	font-family: "Caviar Dreams";
 	src: url(../../dist/fonts/Caviar-Dreams/CaviarDreams.ttf);
@@ -78,240 +162,201 @@ table {
 }
 
 body {
-	background: url(../../dist/img/bg-4-opt.jpg) no-repeat bottom center fixed;
-	background-size: cover;
-	font-family: 'Caviar Dreams';
+	width: 100%;
+	min-height: 100vh;
+	overflow: hidden;
 	color: #fff;
+	background: #000000;
+	font-family: 'Caviar Dreams';
 	font-size: 18px;
-	animation: ani-bg 20s infinite;
+	cursor: url(../../dist/img/logo-cursor.png), auto;
 }
 
-@media only screen and (min-width: 768px) {
-	body header .social {
-		width: 35%;
-		display: flex;
-		justify-content: space-between;
-	}
-	body header .social li:after {
-		width: 0;
-		background: #b3e9fe;
-		transition: width .3s ease-out;
-	}
-	body header .social li:hover:after {
-		width: 100%;
-		background: gold;
-	}
-	body .main-section {
-		margin-top: 0;
-		display: flex;
-		flex-flow: row wrap;
-	}
-	body .main-section div {
-		width: 50%;
-	}
-	body .about-section .about-me, body .about-section img, body .about-section h2 {
-		order: unset;
-	}
-	body .about-section .about-me {
-		width: 50%;
-		margin-top: 0;
-		text-align: left;
-	}
-	body .about-section img {
-		transform: rotate(7deg);
-		animation: ani-rotate 0.3s forwards;
-		animation-delay: 0.8s;
-		margin-left: 2%;
-	}
-}
-
-@media only screen and (min-width: 1024px) {
-	body header {
-		flex-direction: row;
-		justify-content: space-between;
-	}
-	body header .social {
-		padding-top: 40px;
-		margin-top: 0;
-	}
-	body header .social li {
-		padding-right: 30px;
-		padding-bottom: 0px;
-	}
-	body header .social li:nth-child(3) {
-		padding-right: 0;
-	}
-	body .main-section {
-		width: 100%;
-		flex-flow: row;
-		justify-content: space-between;
-		padding: 50px 5%;
-	}
-}
-
-h1 {
-	font-size: 26px;
-}
-
-h2 {
-	font-size: 18px;
-}
-
-/* 2. Content ================================= */
-header, section, .social, div, .about-section img {
-	transition: 0.3s ease-out;
-}
-
-h1, h2, .about-me {
-	text-align: center;
+#app {
+	width: 100%;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
 }
 
 header {
 	display: flex;
-	flex-direction: column;
-	align-items: center;
-	padding: 0.5em 5%;
-}
-
-header a {
 	width: 100%;
-	height: 100%;
+	padding: 2em 1em;
 }
 
-header a img {
-	width: 250px;
-	cursor: pointer;
+header .logo {
+	width: 40px;
+	height: 40px;
+	margin-left: auto;
 }
 
-header .social {
-	text-align: center;
-	margin-top: 30px;
+.home-section {
 	width: 100%;
-}
-
-header .social li {
-	height: 33px;
-	margin-bottom: 30px;
-}
-
-header .social li:after {
-	content: '';
-	display: inline-block;
-	width: 100%;
-	height: 1px;
-	background: gold;
-	transition: 0.3s ease-out;
-}
-
-header .social li:hover:after {
-	background: #b3e9fe;
-}
-
-header .social li a {
-	color: #fff;
-	font-weight: bold;
-	text-decoration: none;
-}
-
-section {
-	padding: 0 5% 50px;
-}
-
-.main-section div {
 	display: flex;
-	flex-direction: column;
-	align-items: center;
-	margin-bottom: 30px;
-}
-
-.main-section div img {
-	width: 200px;
-	transition: 0.5s;
-}
-
-.main-section div img:hover {
-	transform: rotate(70deg);
-	filter: brightness(150%);
-}
-
-.main-section div .planet2:hover, .main-section div .planet4:hover {
-	transform: rotate(-70deg);
-}
-
-.about-section {
-	display: flex;
-	flex-flow: row wrap;
 	justify-content: center;
+	align-items: center;
+	position: relative;
+	top: 100px;
 }
 
-.about-section h1 {
-	width: 100%;
-	margin-bottom: 50px;
-}
-
-.about-section .about-me {
-	width: 100%;
-	line-height: 1.6;
-	margin-top: 30px;
-	order: 2;
-}
-
-.about-section .about-me li:before {
-	content: '\2014';
+.home-section .button-container {
+	width: 80%;
+	display: flex;
+	justify-content: space-between;
 	position: absolute;
-	margin-left: -20px;
-	color: gold;
 }
 
-.about-section img {
-	width: 250px;
-	height: 350px;
-	object-fit: cover;
-	order: 1;
+@media only screen and (min-width: 768px) {
+	.home-section .button-container {
+		width: 73%;
+	}
 }
 
-.about-section h2 {
+@media only screen and (min-width: 1024px) {
+	.home-section .button-container {
+		width: 45%;
+	}
+}
+
+.home-section .button-container .left-scroll, .home-section .button-container .right-scroll {
+	width: 36px;
+	height: 44px;
+	border: none;
+}
+
+.home-section .button-container .left-scroll.hidden, .home-section .button-container .right-scroll.hidden {
+	visibility: hidden;
+}
+
+.home-section .button-container .left-scroll {
+	background: url("../../dist/img/left.png") no-repeat center;
+	background-size: cover;
+}
+
+.home-section .button-container .right-scroll {
+	background: url("../../dist/img/right.png") no-repeat center;
+	background-size: cover;
+}
+
+.home-section .ribbon-container {
+	width: 320px;
+	height: 320px;
+	border-radius: 50%;
+	display: flex;
+	position: relative;
+	overflow: hidden;
+	box-shadow: inset 0 0 50px #fff, inset 20px 0 80px #ff6d00, inset -20px 0 80px #04f, inset 20px 0 300px #f0f, inset -20px 0 300px #0ff, 0 0 50px #fff, -10px 0 80px #f0f, 10px 0 80px #0ff;
+}
+
+@media only screen and (min-width: 768px) {
+	.home-section .ribbon-container {
+		width: 320px;
+		height: 320px;
+	}
+}
+
+.home-section .ribbon-container .ribbon {
+	width: fit-content;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	position: absolute;
+	padding: 0 3em;
+	transition: 0.7s ease-out;
+}
+
+.home-section .ribbon-container .ribbon li {
+	background-size: cover;
+	background-position: center;
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	margin: 0 3em;
+	filter: grayscale(100%);
+}
+
+.home-section blockquote {
+	position: absolute;
+	top: 117%;
+	letter-spacing: 1px;
+	font-size: 16px;
+}
+
+footer {
 	width: 100%;
-	margin-top: 20px;
-	order: 3;
+	display: flex;
+	justify-content: center;
+	margin-top: auto;
+	padding: 2em;
 }
 
-.about-section h2 a {
-	color: gold;
-	transition: 0.3s ease-out;
+footer ul {
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
 }
 
-.about-section h2 a:hover {
+@media only screen and (min-width: 768px) {
+	footer ul {
+		width: 25%;
+	}
+}
+
+footer ul li {
+	width: 40px;
+	height: 40px;
+}
+
+footer ul li path {
+	fill: #fff;
+	transition: 0.4s ease;
+}
+
+#particles-js {
+	position: absolute;
+	width: 100%;
+	height: 100vh;
+}
+
+/* ---- stats.js ---- */
+.count-particles {
+	background: gold;
+	position: absolute;
+	top: 48px;
+	left: 0;
+	width: 80px;
 	color: #b3e9fe;
+	font-size: 0.8em;
+	text-align: left;
+	text-indent: 4px;
+	line-height: 14px;
+	padding-bottom: 2px;
+	font-family: Helvetica, Arial, sans-serif;
+	font-weight: bold;
 }
 
-@keyframes ani-bg {
-	0% {
-		background-color: rgba(119, 77, 192, 0.4);
-		background-blend-mode: luminosity;
-	}
-	25% {
-		background-color: rgba(192, 77, 106, 0.7);
-		background-blend-mode: luminosity;
-	}
-	50% {
-		background-color: rgba(23, 216, 242, 0.6);
-		background-blend-mode: luminosity;
-	}
-	75% {
-		background-color: rgba(144, 216, 20, 0.5);
-		background-blend-mode: luminosity;
-	}
-	100% {
-		background-color: rgba(119, 77, 192, 0.4);
-		background-blend-mode: luminosity;
-	}
+.js-count-particles {
+	font-size: 1.1em;
 }
 
-@keyframes ani-rotate {
-	100% {
-		transform: rotate(0deg);
-	}
+#stats,
+.count-particles {
+	-webkit-user-select: none;
+	margin-top: 5px;
+	margin-left: 5px;
+}
+
+#stats {
+	border-radius: 3px 3px 0 0;
+	overflow: hidden;
+}
+
+.count-particles {
+	border-radius: 0 0 3px 3px;
 }
 
 /*# sourceMappingURL=main.css.map */
