@@ -1,5 +1,5 @@
 let FooterComponent = Vue.component("footing", {
-	props: ["player1characters", "player2characters"],
+	props: {},
 	template:
     `<footer>
         <ul>

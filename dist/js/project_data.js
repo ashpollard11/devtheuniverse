@@ -2,57 +2,52 @@
 
 var projectDataset = [{
 	i: 0,
-	title: "Zoe's Pet Shelter<br/>&mdash;<br/>HTML5 Canvas, Create.JS",
+	active: false,
+	title: "<span>Zoe's Pet Shelter</span><br/><br/>Professional &mdash; HTML5 Canvas &amp; Create.JS",
 	link: "https://www.sesamestreet.org/games?id=25778",
 	image: "../../dist/img/zoes_pet_shelter.png",
 	xPos: -23
 }, {
 	i: 1,
-	title: "Rick &amp; Morty Battles<br/>&mdash;<br/>Responsive CSS, Vue.JS",
+	active: false,
+	title: "<span>Rick &amp; Morty Battles</span><br/><br/>Student &mdash; Vue.JS, TweenMax &amp; Responsive CSS",
 	link: "vue/final/index.html",
 	image: "../../dist/img/rm-bg.jpg",
 	xPos: -280
 }, {
 	i: 2,
-	title: "KR Steakbar<br/>&mdash;<br/>Responsive CSS, Vanilla JavaScript, DrawSVG, MorphSVG",
+	active: false,
+	title: "<span>KR Steakbar</span><br/><br/>Student &mdash; Vanilla JavaScript, DrawSVG, MorphSVG &amp; Responsive CSS",
 	link: "teams2/index.html",
 	image: "../../dist/img/table80-3.jpg",
 	xPos: -538
 }, {
 	i: 3,
-	title: "Kayla's Playground<br/>&mdash;<br/>Unity, C#",
+	active: false,
+	title: "<span>Kayla's Playground</span><br/><br/>Student &mdash; Unity &amp; C#",
 	link: "gamedev/FinalCandidate.zip",
 	image: "../../dist/img/kaylapg.png",
 	xPos: -797
 }, {
 	i: 4,
-	title: "Across The Campus<br/>&mdash;<br/>Responsive CSS, Node.JS, Express",
+	active: false,
+	title: "<span>Across The Campus</span><br/><br/>Student &mdash; Vanilla JavaScript, Node.JS, Express &amp; Responsive CSS",
 	link: "node/index.html",
 	image: "../../dist/img/across-the-campus.png",
 	xPos: -1055
 }, {
 	i: 5,
-	title: "Aesthetic Me<br/>&mdash;<br/>Responsive CSS, React.JS, Redux",
+	active: false,
+	title: "<span>Aesthetic Me</span><br/><br/>Student &mdash; React.JS, Redux &amp; Responsive CSS",
 	link: "react/",
-	image: "../../dist/img/unicornhangover.jpeg",
+	image: "../../dist/img/unicornhangover.jpg",
 	xPos: -1313
 }, {
 	i: 6,
-	title: "Around the Plate<br/>&mdash;<br/>Responsive CSS for Mobile &amp; Tablet, AJAX",
+	active: false,
+	title: "<span>Around the Plate</span><br/><br/>Student &mdash; Vanilla JavaScript, AJAX &amp; Responsive CSS for Mobile &amp; Tablet",
 	link: "ajax/index.html",
 	image: "../../dist/img/around-the-plate.png",
 	xPos: -1571
-}, {
-	i: 7,
-	title: "Boomerang GFX Package<br/>&mdash;<br/>Adobe Aftereffects",
-	link: "https://vimeo.com/289766124",
-	image: "../../dist/img/boomerang.png",
-	xPos: -1828
-}, {
-	i: 8,
-	title: "Atlanta Guide (Work-In-Progress)<br/>&mdash;<br/>Responsive CSS",
-	link: "web-dev/wdwk8/index.html",
-	image: "../../dist/img/hero-atlanta.jpg",
-	xPos: -2087
 }];
 //# sourceMappingURL=project_data.js.map

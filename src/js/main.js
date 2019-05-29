@@ -1,7 +1,8 @@
 const router = new VueRouter({
 	routes: [
-		{ path: '/', component: HomeComponent },
-	//   { path: '/battle', component: BattleComponent },
+		//{ path: '/', component: HomeComponent },
+		{ path: '/portfolio', component: HomeComponent },
+		{ path: '/about', component: AboutComponent },
 	//   { path: '/versus', component: VersusComponent }
 	]	// routes  short for `routes: routes`
 })
@@ -11,7 +12,7 @@ var app = new Vue({
 	router: router,
 	data: {
 		projectData: Object,
-		currentBubble: Object,
+		currentBubble: Object
 	},
 	watch: {
 		
@@ -20,6 +21,7 @@ var app = new Vue({
 
 	},
 	created: function () {
+		router.push('/portfolio');
 		this.projectData = projectDataset;
 		this.currentBubble = this.projectData[0];
 	},
@@ -28,6 +30,9 @@ var app = new Vue({
 			let nextDirection = this.currentBubble.i + direction;
 			console.log("next bubble", nextDirection)
 			this.currentBubble = this.projectData[nextDirection];
+		},
+		openProject: function() {
+			this.currentBubble.active = true;
 		}
 	}
 })

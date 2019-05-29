@@ -1,12 +1,46 @@
 "use strict";
 
 var HeaderComponent = Vue.component("heading", {
-	props: ["player1characters", "player2characters"],
-	template: "<header>\n\t\t\t<img alt=\"devtheuniverse logo\" class=\"logo\" src=\"../../dist/img/logo-mini.png\">\n\t\t</header>",
+	props: {
+		currentBubble: Object
+	},
+	template: "<header>\n\t\t\t<h2 v-html=\"currentBubble.title\" v-if=\"!isHidden\" :class=\"{ hidden: isHidden }\"></h2>\n\t\t\t<h2 v-else class=\"about-heading\" :class=\"{ active: isHidden }\" v-html=\"aboutHeading\"></h2>\n\t\t\t<router-link to=\"/about\">\n\t\t\t\t<div ref=\"logo\" class=\"logo\" :src=\"logoSrc\" @click=\"hideHome(isHidden)\" :style=\"{ 'background-image': 'url(' + logoSrc + ')' }\">\n\t\t\t\t\t<p v-html=\"nextPath\" class=\"nextPath\" :class=\"{ about: isHidden }\"></p>\n\t\t\t\t</div>\n\t\t\t</router-link>\n\t\t</header>",
 	data: function data() {
-		return {};
+		return {
+			isHidden: false,
+			logoSrc: "../../dist/img/logo-mini-outline.png",
+			nextPath: "about develop the universe",
+			aboutHeading: "I'm Ashley, and I'm an</br><span>Interactive Front-End Developer.</span>"
+		};
 	},
 	mounted: function mounted() {},
-	methods: {}
+	methods: {
+		hideHome: function hideHome(isHiding) {
+			var _this = this;
+
+			if (!isHiding) {
+				TweenMax.to(this.$refs.logo, 0.5, { rotationY: 360, opacity: 0, transformOrigin: "center", onComplete: function onComplete() {
+						_this.logoSrc = "../../dist/img/logo-mini.png";
+						_this.nextPath = "portfolio";
+					} });
+				TweenMax.to(this.$refs.logo, 0.1, { opacity: 1, delay: 0.5 });
+				//TweenMax.delayedCall(0.3, () => {})
+				this.isHidden = true;
+			} else {
+				TweenMax.to(this.$refs.logo, 0.5, { rotationY: 0, opacity: 0, transformOrigin: "center", onComplete: function onComplete() {
+						_this.logoSrc = "../../dist/img/logo-mini-outline.png";
+						_this.nextPath = "about developing the universe";
+					} });
+				TweenMax.to(this.$refs.logo, 0.1, { opacity: 1, delay: 0.5 });
+				//TweenMax.delayedCall(0.3, () => {})
+				this.isHidden = false;
+				TweenMax.delayedCall(0.1, function () {
+					router.push('/portfolio');
+				});
+			}
+		}
+	}
 });
+
+//<img ref="logo" alt="devtheuniverse logo" class="logo" :src="logoSrc" @click="hideHome">
 //# sourceMappingURL=HeaderComponent.js.map

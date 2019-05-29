@@ -67,90 +67,6 @@ table {
 	border-spacing: 0;
 }
 
-/*!
- * Hamburgers
- * @description Tasty CSS-animated hamburgers
- * @author Jonathan Suh @jonsuh
- * @site https://jonsuh.com/hamburgers
- * @link https://github.com/jonsuh/hamburgers
- */
-.hamburger {
-	padding: 15px 15px;
-	display: inline-block;
-	cursor: pointer;
-	transition-property: opacity, filter;
-	transition-duration: 0.15s;
-	transition-timing-function: linear;
-	font: inherit;
-	color: inherit;
-	text-transform: none;
-	background-color: transparent;
-	border: 0;
-	margin: 0;
-	overflow: visible;
-}
-
-.hamburger:hover {
-	opacity: 0.7;
-}
-
-.hamburger-box {
-	width: 40px;
-	height: 18px;
-	display: inline-block;
-	position: relative;
-}
-
-.hamburger-inner {
-	display: block;
-	top: 50%;
-	margin-top: -1px;
-}
-
-.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
-	width: 40px;
-	height: 2px;
-	background-color: #fff;
-	border-radius: 4px;
-	position: absolute;
-	transition-property: transform;
-	transition-duration: 0.15s;
-	transition-timing-function: ease;
-}
-
-.hamburger-inner::before, .hamburger-inner::after {
-	content: "";
-	display: block;
-}
-
-.hamburger-inner::before {
-	top: -8px;
-}
-
-.hamburger-inner::after {
-	bottom: -8px;
-}
-
-/*
-   * Minus
-   */
-.hamburger--minus .hamburger-inner::before, .hamburger--minus .hamburger-inner::after {
-	transition: bottom 0.08s 0s ease-out, top 0.08s 0s ease-out, opacity 0s linear;
-}
-
-.hamburger--minus.is-active .hamburger-inner::before, .hamburger--minus.is-active .hamburger-inner::after {
-	opacity: 0;
-	transition: bottom 0.08s ease-out, top 0.08s ease-out, opacity 0s 0.08s linear;
-}
-
-.hamburger--minus.is-active .hamburger-inner::before {
-	top: 0;
-}
-
-.hamburger--minus.is-active .hamburger-inner::after {
-	bottom: 0;
-}
-
 @font-face {
 	font-family: "Caviar Dreams";
 	src: url(../../dist/fonts/Caviar-Dreams/CaviarDreams.ttf);
@@ -164,7 +80,6 @@ table {
 body {
 	width: 100%;
 	min-height: 100vh;
-	overflow: hidden;
 	color: #fff;
 	background: #000000;
 	font-family: 'Caviar Dreams';
@@ -179,6 +94,7 @@ body {
 	flex-direction: column;
 	align-items: center;
 	position: relative;
+	overflow: hidden;
 }
 
 header {
@@ -187,10 +103,98 @@ header {
 	padding: 2em 1em;
 }
 
-header .logo {
-	width: 40px;
-	height: 40px;
+header a {
 	margin-left: auto;
+	text-decoration: none;
+	z-index: 1;
+}
+
+header a .logo {
+	background-position: center;
+	background-size: cover;
+	width: 45px;
+	height: 49px;
+	display: flex;
+	align-items: flex-end;
+}
+
+header a .logo .nextPath {
+	font-size: 16px;
+	color: white;
+	margin: 0 0 4px 0;
+	letter-spacing: 1px;
+	opacity: 0;
+	flex: none;
+	transition: 0.3s ease-out;
+}
+
+@media only screen and (min-width: 768px) {
+	header a .logo {
+		width: 50px;
+		height: 54px;
+	}
+	header a .logo:hover .nextPath {
+		opacity: 1;
+		transform: translateX(-237px);
+	}
+	header a .logo:hover .nextPath.about {
+		transform: translateX(-77px);
+	}
+}
+
+header h2 {
+	max-width: 280px;
+	font-size: 16px;
+	transition: 0.1s ease-out;
+}
+
+@media only screen and (min-width: 768px) {
+	header h2 {
+		font-size: 18px;
+		max-width: unset;
+	}
+}
+
+header h2.hidden {
+	opacity: 0;
+}
+
+header h2 span {
+	font-weight: bold;
+	font-size: 25px;
+}
+
+@media only screen and (min-width: 768px) {
+	header h2 span {
+		font-size: 30px;
+	}
+}
+
+header h2.about-heading {
+	font-size: 20px;
+	line-height: 1.3;
+	transform: translateX(-1000%);
+}
+
+@media only screen and (min-width: 768px) {
+	header h2.about-heading {
+		font-size: 25px;
+	}
+}
+
+header h2.about-heading.active {
+	transform: translateX(0);
+}
+
+header h2.about-heading span {
+	font-weight: bold;
+	font-size: 20px;
+}
+
+@media only screen and (min-width: 768px) {
+	header h2.about-heading span {
+		font-size: 25px;
+	}
 }
 
 .home-section {
@@ -199,7 +203,13 @@ header .logo {
 	justify-content: center;
 	align-items: center;
 	position: relative;
-	top: 100px;
+	top: -10px;
+}
+
+@media only screen and (min-height: 680px) {
+	.home-section {
+		top: 100px;
+	}
 }
 
 .home-section .button-container {
@@ -269,6 +279,7 @@ header .logo {
 }
 
 .home-section .ribbon-container .ribbon li {
+	list-style: none;
 	background-size: cover;
 	background-position: center;
 	width: 150px;
@@ -276,13 +287,150 @@ header .logo {
 	border-radius: 50%;
 	margin: 0 3em;
 	filter: grayscale(100%);
+	transition: 0.7s ease-out;
+}
+
+.home-section .ribbon-container .ribbon li:hover {
+	filter: grayscale(0%);
+	border: rgba(255, 215, 0, 0.37) solid 1px;
 }
 
 .home-section blockquote {
 	position: absolute;
-	top: 117%;
+	top: 105%;
 	letter-spacing: 1px;
 	font-size: 16px;
+}
+
+@media only screen and (min-height: 680px) {
+	.home-section blockquote {
+		top: 117%;
+	}
+}
+
+.about-section {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 0 1em;
+	z-index: 1;
+}
+
+.about-section .skill-section {
+	text-align: center;
+	margin: 60px 0 30px 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+}
+
+.about-section .skill-section h3 {
+	font-size: 22px;
+	font-weight: bold;
+}
+
+.about-section .skill-section article {
+	width: 100%;
+	max-width: 400px;
+	display: flex;
+	flex-flow: row wrap;
+}
+
+.about-section .skill-section article .row {
+	width: 100%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	margin: 15px 0;
+}
+
+.about-section .skill-section article .row.row-1 path, .about-section .skill-section article .row.row-1 circle {
+	fill: #faa464;
+}
+
+.about-section .skill-section article .row.row-3 path, .about-section .skill-section article .row.row-3 circle {
+	fill: rgba(250, 164, 100, 0.65);
+}
+
+.about-section .skill-section article .skill svg {
+	width: 50px;
+	height: 50px;
+}
+
+.about-section .skill-section article .skill title {
+	content: attr(title);
+	background: blue;
+}
+
+.about-section .skill-section p {
+	font-size: 20px;
+	margin-top: 60px;
+}
+
+.about-section .skill-section p a {
+	color: gold;
+	font-weight: bold;
+	text-decoration: none;
+}
+
+.about-section .contact-section {
+	width: 100%;
+	padding: 0 1em;
+}
+
+@media only screen and (min-width: 768px) {
+	.about-section .contact-section {
+		width: 80%;
+		max-width: 782px;
+		padding: 1em 0 1em;
+	}
+}
+
+.about-section .contact-section article {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	line-height: 1.3;
+}
+
+@media only screen and (min-width: 768px) {
+	.about-section .contact-section article {
+		flex-direction: row;
+	}
+}
+
+.about-section .contact-section article .profile {
+	background: url("../../dist/img/about-me.jpg") no-repeat center;
+	background-size: cover;
+	width: 300px;
+	height: 300px;
+	margin: 0 0 20px 0;
+}
+
+@media only screen and (min-width: 768px) {
+	.about-section .contact-section article .profile {
+		margin: unset;
+	}
+}
+
+.about-section .contact-section article .p-container {
+	max-width: 510px;
+}
+
+@media only screen and (min-width: 768px) {
+	.about-section .contact-section article .p-container {
+		margin: 0 20px;
+	}
+}
+
+.about-section .contact-section article .p-container p {
+	margin: 0 0 20px 0;
+}
+
+.about-section .contact-section article .p-container p a {
+	color: #b3e9fe;
 }
 
 footer {
@@ -291,16 +439,24 @@ footer {
 	justify-content: center;
 	margin-top: auto;
 	padding: 2em;
+	z-index: 1;
 }
 
 footer ul {
 	width: 100%;
+	max-width: 314px;
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
 }
 
 @media only screen and (min-width: 768px) {
+	footer ul {
+		width: 60%;
+	}
+}
+
+@media only screen and (min-width: 1024px) {
 	footer ul {
 		width: 25%;
 	}
@@ -343,8 +499,7 @@ footer ul li path {
 	font-size: 1.1em;
 }
 
-#stats,
-.count-particles {
+#stats, .count-particles {
 	-webkit-user-select: none;
 	margin-top: 5px;
 	margin-left: 5px;

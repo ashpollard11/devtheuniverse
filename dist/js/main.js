@@ -1,7 +1,9 @@
 'use strict';
 
 var router = new VueRouter({
-	routes: [{ path: '/', component: HomeComponent }] // routes  short for `routes: routes`
+	routes: [
+	//{ path: '/', component: HomeComponent },
+	{ path: '/portfolio', component: HomeComponent }, { path: '/about', component: AboutComponent }] // routes  short for `routes: routes`
 });
 
 var app = new Vue({
@@ -14,6 +16,7 @@ var app = new Vue({
 	watch: {},
 	computed: {},
 	created: function created() {
+		router.push('/portfolio');
 		this.projectData = projectDataset;
 		this.currentBubble = this.projectData[0];
 	},
@@ -22,6 +25,9 @@ var app = new Vue({
 			var nextDirection = this.currentBubble.i + direction;
 			console.log("next bubble", nextDirection);
 			this.currentBubble = this.projectData[nextDirection];
+		},
+		openProject: function openProject() {
+			this.currentBubble.active = true;
 		}
 	}
 });

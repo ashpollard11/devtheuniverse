@@ -6,36 +6,37 @@ let HomeComponent = Vue.component("home", {
 	template:
 		`<div class="home-section">
 			<section class="button-container">
-				<button class="left-scroll" v-if="!isMobile" @click="scrollRibbon(-1)" :class="{ hidden: endOfLeft }"></button>
-				<button class="right-scroll" v-if="!isMobile" @click="scrollRibbon(1)" :class="{ hidden: endOfRight }"></button>
+				<button role="button" class="left-scroll" v-if="!isMobile" @click="scrollRibbon(-1)" :class="{ hidden: endOfLeft }"></button>
+				<button role="button" class="right-scroll" v-if="!isMobile" @click="scrollRibbon(1)" :class="{ hidden: endOfRight }"></button>
 			</section>
 			<section class="ribbon-container" v-touch:swipe.left="scrollRibbon" v-touch:swipe.right="scrollRibbon">
-				<ul class="ribbon" ref="ribbon" :style="{ left: x + 'px' }">
-					<li v-for="(project, i) in projectData" :style="{ 'background-image': 'url(' + project.image + ')' }">
-						
-					</li>
-				</ul>
+				<nav class="ribbon" ref="ribbon" :style="{ left: x + 'px' }">
+					<a v-bind:href="project.link" v-for="(project, i) in projectData" target="_blank">
+						<li :style="{ 'background-image': 'url(' + project.image + ')' }" @click="openProject"></li>
+					</a>
+				</nav>
 			</section>
-			<blockquote>scroll from left to right</blockquote>
+			<blockquote v-html="scrollSwipeBlurb"></blockquote>
 		</div>`,
 	data: function() {
 		return {
-			isDragging: false,
 			x: -23,
 			endOfLeft: true,
-			endOfRight: false
+			endOfRight: false,
+			scrollSwipeBlurb: String
 		}
 	},
 	mounted: function() {
-		
+		this.scrollSwipeBlurb = (this.isMobile) ? "swipe from left to right" : "navigate arrows from left to right";
 	},
 	watch: {
 		currentBubble: function() {
+			console.log(this.projectData.length)
 			this.x = this.currentBubble.xPos;
 
 			if (this.currentBubble.i === 0) {
 				this.endOfLeft = true;
-			} else if (this.currentBubble.i === 8) {
+			} else if (this.currentBubble.i === (this.projectData.length - 1)) {
 				this.endOfRight = true;
 			} else {
 				this.endOfLeft = false;
@@ -56,13 +57,13 @@ let HomeComponent = Vue.component("home", {
 		scrollRibbon: function(direction) {
 			console.log(direction)
 			if (!this.isMobile) {
-				if ( this.currentBubble.i === 0 && direction === -1 || this.currentBubble.i === 8 && direction === 1) {
+				if ( this.currentBubble.i === 0 && direction === -1 || this.currentBubble.i === (this.projectData.length - 1) && direction === 1) {
 	
 				} else {
 					this.$emit("nextbubble", direction);
 				}
 			} else {
-				if ( this.currentBubble.i === 0 && direction === "right" || this.currentBubble.i === 8 && direction === "left") {
+				if ( this.currentBubble.i === 0 && direction === "right" || this.currentBubble.i === (this.projectData.length - 1) && direction === "left") {
 	
 				} else {
 					let num = (direction === "right") ? -1 : 1;
@@ -71,9 +72,10 @@ let HomeComponent = Vue.component("home", {
 				}
 			}
 		},
+		openProject: function() {
+			this.$emit("openproject");
+		}
 	}
 })
-
-//<h3 v-html="project.title"></h3>
 
 //<img v-bind:src="project.image" alt="project.title">
