@@ -28,6 +28,9 @@ var app = new Vue({
 		},
 		openProject: function openProject() {
 			this.currentBubble.active = true;
+		},
+		exitPortfolio: function exitPortfolio() {
+			this.currentBubble = this.projectData[0];
 		}
 	}
 });

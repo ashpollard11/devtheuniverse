@@ -162,6 +162,7 @@ header { //look into widows
 				letter-spacing: 1px;
 				opacity: 0;
 				flex: none;
+				transform: translateX(0px);
 				transition: 0.3s ease-out;
 			}
 
@@ -173,10 +174,13 @@ header { //look into widows
 
 					.nextPath {
 						opacity: 1;
-						transform: translateX(-237px);
-						
+
 						&.about {
 							transform: translateX(-77px);
+						}
+
+						&.portfolio {
+							transform: translateX(-260px);
 						}
 					}
 				}
@@ -321,6 +325,9 @@ header { //look into widows
 				margin: 0 3em;
 				filter: grayscale(100%);
 				transition: 0.7s ease-out;
+
+				user-select: none;
+				-webkit-tap-highlight-color: transparent;
 
 				&:hover {
 					filter: grayscale(0%);

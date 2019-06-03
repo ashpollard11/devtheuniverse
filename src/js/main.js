@@ -33,6 +33,9 @@ var app = new Vue({
 		},
 		openProject: function() {
 			this.currentBubble.active = true;
+		},
+		exitPortfolio: function() {
+			this.currentBubble = this.projectData[0];
 		}
 	}
 })

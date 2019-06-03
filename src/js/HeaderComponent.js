@@ -8,7 +8,7 @@ let HeaderComponent = Vue.component("heading", {
 			<h2 v-else class="about-heading" :class="{ active: isHidden }" v-html="aboutHeading"></h2>
 			<router-link to="/about">
 				<div ref="logo" class="logo" :src="logoSrc" @click="hideHome(isHidden)" :style="{ 'background-image': 'url(' + logoSrc + ')' }">
-					<p v-html="nextPath" class="nextPath" :class="{ about: isHidden }"></p>
+					<p v-html="nextPath" class="nextPath" :class="{ about: isHidden, portfolio: !isHidden }"></p>
 				</div>
 			</router-link>
 		</header>`,
@@ -33,6 +33,7 @@ let HeaderComponent = Vue.component("heading", {
 				TweenMax.to(this.$refs.logo, 0.1, {opacity: 1, delay: 0.5});
 				//TweenMax.delayedCall(0.3, () => {})
 				this.isHidden = true;
+				this.$emit("exitportfolio");
 			} else {
 				TweenMax.to(this.$refs.logo, 0.5, {rotationY:0, opacity: 0, transformOrigin:"center", onComplete: () => {
 					this.logoSrc = "../../dist/img/logo-mini-outline.png";

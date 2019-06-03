@@ -27,7 +27,7 @@ let HomeComponent = Vue.component("home", {
 		}
 	},
 	mounted: function() {
-		this.scrollSwipeBlurb = (this.isMobile) ? "swipe from left to right" : "navigate arrows from left to right";
+		this.scrollSwipeBlurb = (this.isMobile) ? "swipe to view portfolio" : "navigate arrows to view portfolio";
 	},
 	watch: {
 		currentBubble: function() {

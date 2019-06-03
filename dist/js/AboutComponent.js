@@ -11,7 +11,7 @@ var AboutComponent = Vue.component("about", {
 	},
 	mounted: function mounted() {
 
-		console.log(this.$route);
+		//console.log(this.$route)
 	},
 	watch: {},
 	computed: {
