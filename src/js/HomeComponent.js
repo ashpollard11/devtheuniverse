@@ -12,7 +12,7 @@ let HomeComponent = Vue.component("home", {
 			<section class="ribbon-container" v-touch:swipe.left="scrollRibbon" v-touch:swipe.right="scrollRibbon">
 				<nav class="ribbon" ref="ribbon" :style="{ left: x + 'px' }">
 					<a v-bind:href="project.link" v-for="(project, i) in projectData" target="_blank">
-						<li :style="{ 'background-image': 'url(' + project.image + ')' }" @click="openProject"></li>
+						<li :style="{ 'background-image': 'url(' + project.image + ')' }"></li>
 					</a>
 				</nav>
 			</section>
@@ -71,9 +71,6 @@ let HomeComponent = Vue.component("home", {
 					this.$emit("nextbubble", num);
 				}
 			}
-		},
-		openProject: function() {
-			this.$emit("openproject");
 		}
 	}
 })

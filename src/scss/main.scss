@@ -30,6 +30,8 @@ TABLE OF CONTENTS:
 
 * {
 	box-sizing: border-box;
+	-webkit-tap-highlight-color:  rgba(255, 255, 255, 0);
+	user-select: none;
 }
 
 body {
@@ -188,7 +190,7 @@ header { //look into widows
 		}
 	}
 
-	h2 {
+	h1 {
 		max-width: 280px;
 		font-size: 16px;
 		transition: 0.1s ease-out;
@@ -241,11 +243,15 @@ header { //look into widows
     display: flex;
     justify-content: center;
 	align-items: center;
-	position: relative;
-	top: -10px;
+	position: absolute;
+	top: 118px;
 	
 	@include bp-sm-mobile {
-		top: 100px;
+		top: calc(65% - 320px);
+	}
+
+	@include bp-tablet {
+		top: 30%;
 	}
 	
 	.button-container {
@@ -325,9 +331,6 @@ header { //look into widows
 				margin: 0 3em;
 				filter: grayscale(100%);
 				transition: 0.7s ease-out;
-
-				user-select: none;
-				-webkit-tap-highlight-color: transparent;
 
 				&:hover {
 					filter: grayscale(0%);

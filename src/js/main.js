@@ -31,9 +31,6 @@ var app = new Vue({
 			console.log("next bubble", nextDirection)
 			this.currentBubble = this.projectData[nextDirection];
 		},
-		openProject: function() {
-			this.currentBubble.active = true;
-		},
 		exitPortfolio: function() {
 			this.currentBubble = this.projectData[0];
 		}

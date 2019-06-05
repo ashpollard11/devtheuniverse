@@ -4,8 +4,8 @@ let HeaderComponent = Vue.component("heading", {
 	},
 	template:
 		`<header>
-			<h2 v-html="currentBubble.title" v-if="!isHidden" :class="{ hidden: isHidden }"></h2>
-			<h2 v-else class="about-heading" :class="{ active: isHidden }" v-html="aboutHeading"></h2>
+			<h1 v-html="currentBubble.title" v-if="!isHidden" :class="{ hidden: isHidden }"></h1>
+			<h1 v-else class="about-heading" :class="{ active: isHidden }" v-html="aboutHeading"></h1>
 			<router-link to="/about">
 				<div ref="logo" class="logo" :src="logoSrc" @click="hideHome(isHidden)" :style="{ 'background-image': 'url(' + logoSrc + ')' }">
 					<p v-html="nextPath" class="nextPath" :class="{ about: isHidden, portfolio: !isHidden }"></p>
@@ -17,7 +17,7 @@ let HeaderComponent = Vue.component("heading", {
 			isHidden: false,
 			logoSrc: "../../dist/img/logo-mini-outline.png",
 			nextPath: "about develop the universe",
-			aboutHeading: "I'm Ashley, and I'm an</br><span>Interactive Front-End Developer.</span>"
+			aboutHeading: "I'm Ashley Pollard, an</br><span>Interactive Front-End Developer.</span>"
 		}
 	},
 	mounted: function() {
