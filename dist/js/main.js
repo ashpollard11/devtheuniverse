@@ -28,6 +28,9 @@ var app = new Vue({
 		},
 		exitPortfolio: function exitPortfolio() {
 			this.currentBubble = this.projectData[0];
+		},
+		directSelectBubble: function directSelectBubble(selection) {
+			this.currentBubble = this.projectData[selection];
 		}
 	}
 });

@@ -33,6 +33,9 @@ var app = new Vue({
 		},
 		exitPortfolio: function() {
 			this.currentBubble = this.projectData[0];
+		},
+		directSelectBubble: function(selection) {
+			this.currentBubble = this.projectData[selection];
 		}
 	}
 })

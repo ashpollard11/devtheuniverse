@@ -5,9 +5,16 @@ let HomeComponent = Vue.component("home", {
 	},
 	template:
 		`<div class="home-section">
+			<section class="directory-container" :class="{ active: openDirectory }">
+				<blockquote>jump to project</blockquote>
+				<ul>
+					<li v-for="(project, i) in projectData" @click="directorySelect(i)"> {{ project.shortTitle }} </li>
+				</ul>
+				<button role="button" type="button" class="directory" @click="toggleDirectory" :class="{ active: openDirectory }"></button>
+			</section>
 			<section class="button-container">
-				<button role="button" class="left-scroll" v-if="!isMobile" @click="scrollRibbon(-1)" :class="{ hidden: endOfLeft }"></button>
-				<button role="button" class="right-scroll" v-if="!isMobile" @click="scrollRibbon(1)" :class="{ hidden: endOfRight }"></button>
+				<button role="button" type="button" class="left-scroll" v-if="!isMobile" @click="scrollRibbon(-1)" :class="{ hidden: endOfLeft }"></button>
+				<button role="button" type="button" class="right-scroll" v-if="!isMobile" @click="scrollRibbon(1)" :class="{ hidden: endOfRight }"></button>
 			</section>
 			<section class="ribbon-container" v-touch:swipe.left="scrollRibbon" v-touch:swipe.right="scrollRibbon">
 				<nav class="ribbon" ref="ribbon" :style="{ left: x + 'px' }">
@@ -16,14 +23,15 @@ let HomeComponent = Vue.component("home", {
 					</a>
 				</nav>
 			</section>
-			<blockquote v-html="scrollSwipeBlurb"></blockquote>
+			<blockquote v-html="scrollSwipeBlurb" class="blurb"></blockquote>
 		</div>`,
 	data: function() {
 		return {
 			x: -23,
 			endOfLeft: true,
 			endOfRight: false,
-			scrollSwipeBlurb: String
+			scrollSwipeBlurb: String,
+			openDirectory: false
 		}
 	},
 	mounted: function() {
@@ -31,7 +39,6 @@ let HomeComponent = Vue.component("home", {
 	},
 	watch: {
 		currentBubble: function() {
-			console.log(this.projectData.length)
 			this.x = this.currentBubble.xPos;
 
 			if (this.currentBubble.i === 0) {
@@ -71,6 +78,14 @@ let HomeComponent = Vue.component("home", {
 					this.$emit("nextbubble", num);
 				}
 			}
+		},
+		toggleDirectory: function() {
+			this.openDirectory = !this.openDirectory;
+		},
+		directorySelect: function(selection) {
+			this.toggleDirectory();
+
+			this.$emit('directselectbubble', selection);
 		}
 	}
 })

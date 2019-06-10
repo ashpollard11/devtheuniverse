@@ -21,8 +21,8 @@
 
 		<div id="app">
 			<div id="particles-js"></div>
-			<heading :current-bubble="currentBubble"  @exitportfolio="exitPortfolio"></heading>
-			<router-view :project-data="projectData" :current-bubble="currentBubble" @nextbubble="nextBubble"></router-view>
+			<heading :current-bubble="currentBubble" @exitportfolio="exitPortfolio"></heading>
+			<router-view :project-data="projectData" :current-bubble="currentBubble" @nextbubble="nextBubble" @directselectbubble="directSelectBubble"></router-view>
 			<footing></footing>
 		</div>
 

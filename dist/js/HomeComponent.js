@@ -5,13 +5,14 @@ var HomeComponent = Vue.component("home", {
 		projectData: Array,
 		currentBubble: Object
 	},
-	template: "<div class=\"home-section\">\n\t\t\t<section class=\"button-container\">\n\t\t\t\t<button role=\"button\" class=\"left-scroll\" v-if=\"!isMobile\" @click=\"scrollRibbon(-1)\" :class=\"{ hidden: endOfLeft }\"></button>\n\t\t\t\t<button role=\"button\" class=\"right-scroll\" v-if=\"!isMobile\" @click=\"scrollRibbon(1)\" :class=\"{ hidden: endOfRight }\"></button>\n\t\t\t</section>\n\t\t\t<section class=\"ribbon-container\" v-touch:swipe.left=\"scrollRibbon\" v-touch:swipe.right=\"scrollRibbon\">\n\t\t\t\t<nav class=\"ribbon\" ref=\"ribbon\" :style=\"{ left: x + 'px' }\">\n\t\t\t\t\t<a v-bind:href=\"project.link\" v-for=\"(project, i) in projectData\" target=\"_blank\">\n\t\t\t\t\t\t<li :style=\"{ 'background-image': 'url(' + project.image + ')' }\"></li>\n\t\t\t\t\t</a>\n\t\t\t\t</nav>\n\t\t\t</section>\n\t\t\t<blockquote v-html=\"scrollSwipeBlurb\"></blockquote>\n\t\t</div>",
+	template: "<div class=\"home-section\">\n\t\t\t<section class=\"directory-container\" :class=\"{ active: openDirectory }\">\n\t\t\t\t<blockquote>jump to project</blockquote>\n\t\t\t\t<ul>\n\t\t\t\t\t<li v-for=\"(project, i) in projectData\" @click=\"directorySelect(i)\"> {{ project.shortTitle }} </li>\n\t\t\t\t</ul>\n\t\t\t\t<button role=\"button\" type=\"button\" class=\"directory\" @click=\"toggleDirectory\" :class=\"{ active: openDirectory }\"></button>\n\t\t\t</section>\n\t\t\t<section class=\"button-container\">\n\t\t\t\t<button role=\"button\" type=\"button\" class=\"left-scroll\" v-if=\"!isMobile\" @click=\"scrollRibbon(-1)\" :class=\"{ hidden: endOfLeft }\"></button>\n\t\t\t\t<button role=\"button\" type=\"button\" class=\"right-scroll\" v-if=\"!isMobile\" @click=\"scrollRibbon(1)\" :class=\"{ hidden: endOfRight }\"></button>\n\t\t\t</section>\n\t\t\t<section class=\"ribbon-container\" v-touch:swipe.left=\"scrollRibbon\" v-touch:swipe.right=\"scrollRibbon\">\n\t\t\t\t<nav class=\"ribbon\" ref=\"ribbon\" :style=\"{ left: x + 'px' }\">\n\t\t\t\t\t<a v-bind:href=\"project.link\" v-for=\"(project, i) in projectData\" target=\"_blank\">\n\t\t\t\t\t\t<li :style=\"{ 'background-image': 'url(' + project.image + ')' }\"></li>\n\t\t\t\t\t</a>\n\t\t\t\t</nav>\n\t\t\t</section>\n\t\t\t<blockquote v-html=\"scrollSwipeBlurb\" class=\"blurb\"></blockquote>\n\t\t</div>",
 	data: function data() {
 		return {
 			x: -23,
 			endOfLeft: true,
 			endOfRight: false,
-			scrollSwipeBlurb: String
+			scrollSwipeBlurb: String,
+			openDirectory: false
 		};
 	},
 	mounted: function mounted() {
@@ -19,7 +20,6 @@ var HomeComponent = Vue.component("home", {
 	},
 	watch: {
 		currentBubble: function currentBubble() {
-			console.log(this.projectData.length);
 			this.x = this.currentBubble.xPos;
 
 			if (this.currentBubble.i === 0) {
@@ -55,6 +55,14 @@ var HomeComponent = Vue.component("home", {
 					this.$emit("nextbubble", num);
 				}
 			}
+		},
+		toggleDirectory: function toggleDirectory() {
+			this.openDirectory = !this.openDirectory;
+		},
+		directorySelect: function directorySelect(selection) {
+			this.toggleDirectory();
+
+			this.$emit('directselectbubble', selection);
 		}
 	}
 });
