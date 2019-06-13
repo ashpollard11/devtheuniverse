@@ -286,13 +286,18 @@ header { //look into widows
 		}
 	
 		.directory {
-			width: 50px;
+			width: 75px;
 			height: 50px;
+			font-family: 'Caviar Dreams';
+			font-weight: bold;
+			letter-spacing: 1px;
+			font-size: 16px;
 			border: none;
 			border-radius: 100%;
-			background: rgba(255, 255, 255, 0.8);
+			background: $dtuBlue;
 			position: absolute;
-			bottom: -15px;
+			bottom: -18px;
+			padding: 24px 0 0;
 
 			&.active {
 				opacity: 0;
@@ -301,10 +306,6 @@ header { //look into widows
 
 		&.active {
 			transform: translateY(0);
-
-			.directory {
-				
-			}
 		}
 
 		blockquote {
@@ -314,6 +315,7 @@ header { //look into widows
 		
 	.button-container {
 		width: 80%;
+		max-width: 640px;
 		display: flex;
 		justify-content: space-between;
 		position: absolute;
@@ -324,11 +326,11 @@ header { //look into widows
 		}
 
 		@include bp-desktop {
-			width: 45%;
+			width: 60%;
 		}
 
 		.left-scroll, .right-scroll {
-			width: 36px;
+			width: 72px;
     		height: 44px;
 			border: none;
 

@@ -10,7 +10,7 @@ let HomeComponent = Vue.component("home", {
 				<ul>
 					<li v-for="(project, i) in projectData" @click="directorySelect(i)"> {{ project.shortTitle }} </li>
 				</ul>
-				<button role="button" type="button" class="directory" @click="toggleDirectory" :class="{ active: openDirectory }"></button>
+				<button role="button" type="button" class="directory" @click="toggleDirectory" :class="{ active: openDirectory }">jump</button>
 			</section>
 			<section class="button-container">
 				<button role="button" type="button" class="left-scroll" v-if="!isMobile" @click="scrollRibbon(-1)" :class="{ hidden: endOfLeft }"></button>

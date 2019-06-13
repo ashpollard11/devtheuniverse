@@ -264,13 +264,18 @@ header h1.about-heading span {
 }
 
 .home-section .directory-container .directory {
-	width: 50px;
+	width: 75px;
 	height: 50px;
+	font-family: 'Caviar Dreams';
+	font-weight: bold;
+	letter-spacing: 1px;
+	font-size: 16px;
 	border: none;
 	border-radius: 100%;
-	background: rgba(255, 255, 255, 0.8);
+	background: #b3e9fe;
 	position: absolute;
-	bottom: -15px;
+	bottom: -18px;
+	padding: 24px 0 0;
 }
 
 .home-section .directory-container .directory.active {
@@ -287,6 +292,7 @@ header h1.about-heading span {
 
 .home-section .button-container {
 	width: 80%;
+	max-width: 640px;
 	display: flex;
 	justify-content: space-between;
 	position: absolute;
@@ -301,12 +307,12 @@ header h1.about-heading span {
 
 @media only screen and (min-width: 1024px) {
 	.home-section .button-container {
-		width: 45%;
+		width: 60%;
 	}
 }
 
 .home-section .button-container .left-scroll, .home-section .button-container .right-scroll {
-	width: 36px;
+	width: 72px;
 	height: 44px;
 	border: none;
 }
