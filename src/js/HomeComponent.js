@@ -5,12 +5,24 @@ let HomeComponent = Vue.component("home", {
 	},
 	template:
 		`<div class="home-section">
+			<div class="overlay" v-if="showHint"></div>
+			<section class="hint-container" v-if="showHint">
+				<ul>
+					<li class="point point-1" ref="point1"></li>
+					<li class="point point-2" ref="point2"></li>
+					<li class="point point-3" ref="point3"></li>
+				</ul>
+				<div class="circle">
+					<p v-html="hintBlurb" class="hint"></p>
+				</div>
+				<button role="button" class="close" v-html="closeSymbol" @click="closeHint"></button>
+			</section>
 			<section class="directory-container" :class="{ active: openDirectory }">
 				<blockquote>jump to project</blockquote>
 				<ul>
 					<li v-for="(project, i) in projectData" @click="directorySelect(i)"> {{ project.shortTitle }} </li>
 				</ul>
-				<button role="button" type="button" class="directory" @click="toggleDirectory" :class="{ active: openDirectory }">jump</button>
+				<button role="button" type="button" class="directory" @click="toggleDirectory" :class="{ active: openDirectory }"></button>
 			</section>
 			<section class="button-container">
 				<button role="button" type="button" class="left-scroll" v-if="!isMobile" @click="scrollRibbon(-1)" :class="{ hidden: endOfLeft }"></button>
@@ -31,11 +43,21 @@ let HomeComponent = Vue.component("home", {
 			endOfLeft: true,
 			endOfRight: false,
 			scrollSwipeBlurb: String,
-			openDirectory: false
+			hintBlurb: String,
+			openDirectory: false,
+			showHint: false,
+			tl: new TimelineMax(),
+			closeSymbol: "&times;"
 		}
 	},
 	mounted: function() {
-		this.scrollSwipeBlurb = (this.isMobile) ? "swipe to view portfolio" : "navigate arrows to view portfolio";
+		this.scrollSwipeBlurb = (this.isMobile) ? "swipe to view portfolio" : "navigate bubbles to view portfolio";
+		this.hintBlurb = (this.isMobile) ? "tap the tab to view all projects" : "click the tab to view all projects";
+
+		//delay show hint
+		TweenMax.delayedCall(1, () => {
+			this.showHint = true;
+		})
 	},
 	watch: {
 		currentBubble: function() {
@@ -48,6 +70,16 @@ let HomeComponent = Vue.component("home", {
 			} else {
 				this.endOfLeft = false;
 				this.endOfRight = false;
+			}
+		},
+		showHint: function() {
+			if (this.showHint) {
+				Vue.nextTick(() => {
+					console.log(this.$refs.point1);
+					this.tl.to(this.$refs.point3, 0.2, {opacity:1,  delay:0.2})
+					this.tl.to(this.$refs.point2, 0.2, {opacity:1})
+					this.tl.to(this.$refs.point1, 0.2, {opacity:1});
+				});
 			}
 		}
 	},
@@ -86,6 +118,9 @@ let HomeComponent = Vue.component("home", {
 			this.toggleDirectory();
 
 			this.$emit('directselectbubble', selection);
+		},
+		closeHint: function() {
+			this.showHint = false;
 		}
 	}
 })

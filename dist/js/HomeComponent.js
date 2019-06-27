@@ -5,18 +5,30 @@ var HomeComponent = Vue.component("home", {
 		projectData: Array,
 		currentBubble: Object
 	},
-	template: "<div class=\"home-section\">\n\t\t\t<section class=\"directory-container\" :class=\"{ active: openDirectory }\">\n\t\t\t\t<blockquote>jump to project</blockquote>\n\t\t\t\t<ul>\n\t\t\t\t\t<li v-for=\"(project, i) in projectData\" @click=\"directorySelect(i)\"> {{ project.shortTitle }} </li>\n\t\t\t\t</ul>\n\t\t\t\t<button role=\"button\" type=\"button\" class=\"directory\" @click=\"toggleDirectory\" :class=\"{ active: openDirectory }\">jump</button>\n\t\t\t</section>\n\t\t\t<section class=\"button-container\">\n\t\t\t\t<button role=\"button\" type=\"button\" class=\"left-scroll\" v-if=\"!isMobile\" @click=\"scrollRibbon(-1)\" :class=\"{ hidden: endOfLeft }\"></button>\n\t\t\t\t<button role=\"button\" type=\"button\" class=\"right-scroll\" v-if=\"!isMobile\" @click=\"scrollRibbon(1)\" :class=\"{ hidden: endOfRight }\"></button>\n\t\t\t</section>\n\t\t\t<section class=\"ribbon-container\" v-touch:swipe.left=\"scrollRibbon\" v-touch:swipe.right=\"scrollRibbon\">\n\t\t\t\t<nav class=\"ribbon\" ref=\"ribbon\" :style=\"{ left: x + 'px' }\">\n\t\t\t\t\t<a v-bind:href=\"project.link\" v-for=\"(project, i) in projectData\" target=\"_blank\">\n\t\t\t\t\t\t<li :style=\"{ 'background-image': 'url(' + project.image + ')' }\"></li>\n\t\t\t\t\t</a>\n\t\t\t\t</nav>\n\t\t\t</section>\n\t\t\t<blockquote v-html=\"scrollSwipeBlurb\" class=\"blurb\"></blockquote>\n\t\t</div>",
+	template: "<div class=\"home-section\">\n\t\t\t<div class=\"overlay\" v-if=\"showHint\"></div>\n\t\t\t<section class=\"hint-container\" v-if=\"showHint\">\n\t\t\t\t<ul>\n\t\t\t\t\t<li class=\"point point-1\" ref=\"point1\"></li>\n\t\t\t\t\t<li class=\"point point-2\" ref=\"point2\"></li>\n\t\t\t\t\t<li class=\"point point-3\" ref=\"point3\"></li>\n\t\t\t\t</ul>\n\t\t\t\t<div class=\"circle\">\n\t\t\t\t\t<p v-html=\"hintBlurb\" class=\"hint\"></p>\n\t\t\t\t</div>\n\t\t\t\t<button role=\"button\" class=\"close\" v-html=\"closeSymbol\" @click=\"closeHint\"></button>\n\t\t\t</section>\n\t\t\t<section class=\"directory-container\" :class=\"{ active: openDirectory }\">\n\t\t\t\t<blockquote>jump to project</blockquote>\n\t\t\t\t<ul>\n\t\t\t\t\t<li v-for=\"(project, i) in projectData\" @click=\"directorySelect(i)\"> {{ project.shortTitle }} </li>\n\t\t\t\t</ul>\n\t\t\t\t<button role=\"button\" type=\"button\" class=\"directory\" @click=\"toggleDirectory\" :class=\"{ active: openDirectory }\"></button>\n\t\t\t</section>\n\t\t\t<section class=\"button-container\">\n\t\t\t\t<button role=\"button\" type=\"button\" class=\"left-scroll\" v-if=\"!isMobile\" @click=\"scrollRibbon(-1)\" :class=\"{ hidden: endOfLeft }\"></button>\n\t\t\t\t<button role=\"button\" type=\"button\" class=\"right-scroll\" v-if=\"!isMobile\" @click=\"scrollRibbon(1)\" :class=\"{ hidden: endOfRight }\"></button>\n\t\t\t</section>\n\t\t\t<section class=\"ribbon-container\" v-touch:swipe.left=\"scrollRibbon\" v-touch:swipe.right=\"scrollRibbon\">\n\t\t\t\t<nav class=\"ribbon\" ref=\"ribbon\" :style=\"{ left: x + 'px' }\">\n\t\t\t\t\t<a v-bind:href=\"project.link\" v-for=\"(project, i) in projectData\" target=\"_blank\">\n\t\t\t\t\t\t<li :style=\"{ 'background-image': 'url(' + project.image + ')' }\"></li>\n\t\t\t\t\t</a>\n\t\t\t\t</nav>\n\t\t\t</section>\n\t\t\t<blockquote v-html=\"scrollSwipeBlurb\" class=\"blurb\"></blockquote>\n\t\t</div>",
 	data: function data() {
 		return {
 			x: -23,
 			endOfLeft: true,
 			endOfRight: false,
 			scrollSwipeBlurb: String,
-			openDirectory: false
+			hintBlurb: String,
+			openDirectory: false,
+			showHint: false,
+			tl: new TimelineMax(),
+			closeSymbol: "&times;"
 		};
 	},
 	mounted: function mounted() {
-		this.scrollSwipeBlurb = this.isMobile ? "swipe to view portfolio" : "navigate arrows to view portfolio";
+		var _this = this;
+
+		this.scrollSwipeBlurb = this.isMobile ? "swipe to view portfolio" : "navigate bubbles to view portfolio";
+		this.hintBlurb = this.isMobile ? "tap the tab to view all projects" : "click the tab to view all projects";
+
+		//delay show hint
+		TweenMax.delayedCall(1, function () {
+			_this.showHint = true;
+		});
 	},
 	watch: {
 		currentBubble: function currentBubble() {
@@ -29,6 +41,18 @@ var HomeComponent = Vue.component("home", {
 			} else {
 				this.endOfLeft = false;
 				this.endOfRight = false;
+			}
+		},
+		showHint: function showHint() {
+			var _this2 = this;
+
+			if (this.showHint) {
+				Vue.nextTick(function () {
+					console.log(_this2.$refs.point1);
+					_this2.tl.to(_this2.$refs.point3, 0.2, { opacity: 1, delay: 0.2 });
+					_this2.tl.to(_this2.$refs.point2, 0.2, { opacity: 1 });
+					_this2.tl.to(_this2.$refs.point1, 0.2, { opacity: 1 });
+				});
 			}
 		}
 	},
@@ -63,6 +87,9 @@ var HomeComponent = Vue.component("home", {
 			this.toggleDirectory();
 
 			this.$emit('directselectbubble', selection);
+		},
+		closeHint: function closeHint() {
+			this.showHint = false;
 		}
 	}
 });
