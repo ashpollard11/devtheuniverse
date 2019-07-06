@@ -25,8 +25,14 @@ let HomeComponent = Vue.component("home", {
 				<button role="button" type="button" class="directory" @click="toggleDirectory" :class="{ active: openDirectory }"></button>
 			</section>
 			<section class="button-container">
-				<button role="button" type="button" class="left-scroll" v-if="!isMobile" @click="scrollRibbon(-1)" :class="{ hidden: endOfLeft }"></button>
-				<button role="button" type="button" class="right-scroll" v-if="!isMobile" @click="scrollRibbon(1)" :class="{ hidden: endOfRight }"></button>
+				<button role="button" type="button" class="left-scroll" ref="left" v-if="!isMobile" @click="scrollRibbon(-1)" :class="{ hidden: endOfLeft }">
+					<div class="small"></div>
+					<div class="large"></div>
+				</button>
+				<button role="button" type="button" class="right-scroll" ref="right" v-if="!isMobile" @click="scrollRibbon(1)" :class="{ hidden: endOfRight }">
+					<div class="large"></div>
+					<div class="small"></div>
+				</button>
 			</section>
 			<section class="ribbon-container" v-touch:swipe.left="scrollRibbon" v-touch:swipe.right="scrollRibbon">
 				<nav class="ribbon" ref="ribbon" :style="{ left: x + 'px' }">
@@ -46,7 +52,7 @@ let HomeComponent = Vue.component("home", {
 			hintBlurb: String,
 			openDirectory: false,
 			showHint: false,
-			tl: new TimelineMax(),
+			hintTl: new TimelineMax(),
 			closeSymbol: "&times;"
 		}
 	},
@@ -58,6 +64,34 @@ let HomeComponent = Vue.component("home", {
 		TweenMax.delayedCall(1, () => {
 			this.showHint = true;
 		})
+
+		if (this.$refs.left) {
+
+			let leftFirst, leftLast, rightFirst, rightLast;
+	
+			leftFirst = TweenMax.to(this.$refs.left.firstChild, 0.5, {x: -20, scale: 0.8,  yoyo: true, repeat: -1, repeatDelay: 1, ease: Bounce.easeIn});
+			leftLast = TweenMax.to(this.$refs.left.lastChild, 0.5, {x: -20, scale: 0.8, yoyo: true, repeat: -1, repeatDelay: 1, ease: Bounce.easeIn});
+			rightFirst = TweenMax.to(this.$refs.right.firstChild, 0.5, {x: 20, scale: 0.8,  yoyo: true, repeat: -1, repeatDelay: 1, ease: Bounce.easeIn});
+			rightLast = TweenMax.to(this.$refs.right.lastChild, 0.5, {x: 20, scale: 0.8, yoyo: true, repeat: -1, repeatDelay: 1, ease: Bounce.easeIn});
+		
+			this.$refs.left.addEventListener("mouseover", (e) => {
+				leftFirst.kill();
+				leftLast.kill();
+			});
+			this.$refs.left.addEventListener("mouseout", (e) => {
+				leftFirst.play();
+				leftLast.play();
+			});
+	
+			this.$refs.right.addEventListener("mouseover", (e) => {
+				rightFirst.kill();
+				rightLast.kill();
+			});
+			this.$refs.right.addEventListener("mouseout", (e) => {
+				rightFirst.play();
+				rightLast.play();
+			});
+		}
 	},
 	watch: {
 		currentBubble: function() {
@@ -75,10 +109,9 @@ let HomeComponent = Vue.component("home", {
 		showHint: function() {
 			if (this.showHint) {
 				Vue.nextTick(() => {
-					console.log(this.$refs.point1);
-					this.tl.to(this.$refs.point3, 0.2, {opacity:1,  delay:0.2})
-					this.tl.to(this.$refs.point2, 0.2, {opacity:1})
-					this.tl.to(this.$refs.point1, 0.2, {opacity:1});
+					this.hintTl.to(this.$refs.point3, 0.2, {opacity:1,  delay:0.2})
+					this.hintTl.to(this.$refs.point2, 0.2, {opacity:1})
+					this.hintTl.to(this.$refs.point1, 0.2, {opacity:1});
 				});
 			}
 		}

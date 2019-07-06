@@ -249,7 +249,7 @@ header h1.about-heading span {
 .home-section .hint-container ul li {
 	width: 10px;
 	height: 10px;
-	background: rgba(255, 109, 0, 0.97);
+	background: #b3e9fe;
 	border-radius: 100%;
 	margin: 0.5em 0;
 	opacity: 0;
@@ -379,8 +379,9 @@ header h1.about-heading span {
 }
 
 .home-section .button-container .left-scroll, .home-section .button-container .right-scroll {
-	width: 65px;
-	height: 36px;
+	display: flex;
+	align-items: center;
+	background: none;
 	border: none;
 	cursor: pointer;
 	outline: none;
@@ -390,14 +391,45 @@ header h1.about-heading span {
 	visibility: hidden;
 }
 
-.home-section .button-container .left-scroll {
-	background: url("../../dist/img/left.png") no-repeat center;
-	background-size: cover;
+.home-section .button-container .left-scroll div, .home-section .button-container .right-scroll div {
+	background: #b3e9fe;
+	border-radius: 100%;
 }
 
-.home-section .button-container .right-scroll {
-	background: url("../../dist/img/right.png") no-repeat center;
-	background-size: cover;
+.home-section .button-container .left-scroll div.small, .home-section .button-container .right-scroll div.small {
+	width: 21px;
+	height: 21px;
+	opacity: 0.7;
+}
+
+.home-section .button-container .left-scroll div.large, .home-section .button-container .right-scroll div.large {
+	width: 35px;
+	height: 35px;
+	opacity: 0.8;
+}
+
+.home-section .button-container .left-scroll:hover div, .home-section .button-container .right-scroll:hover div {
+	transition: 0.3s ease-in;
+}
+
+.home-section .button-container .left-scroll:hover div.small, .home-section .button-container .right-scroll:hover div.small {
+	width: 21px;
+	height: 21px;
+	opacity: 0.9;
+}
+
+.home-section .button-container .left-scroll:hover div.large, .home-section .button-container .right-scroll:hover div.large {
+	width: 35px;
+	height: 35px;
+	opacity: 1;
+}
+
+.home-section .button-container .left-scroll .small {
+	margin: 0 7px 0 0;
+}
+
+.home-section .button-container .right-scroll .small {
+	margin: 0 0 0 7px;
 }
 
 .home-section .ribbon-container {

@@ -27,7 +27,7 @@ var projectDataset = [{
 }, {
 	i: 3,
 	active: false,
-	title: "<span>Kayla's Playground</span><br/><br/>Student &mdash; Unity &amp; C#",
+	title: "<span>Kayla's Playground</span><br/><br/>Student &mdash; Unity &amp; C# (download)",
 	shortTitle: "Kayla's Playground",
 	link: "gamedev/FinalCandidate.zip",
 	image: "../../dist/img/kaylapg.png",

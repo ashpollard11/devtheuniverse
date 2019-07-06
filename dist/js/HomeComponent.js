@@ -5,7 +5,7 @@ var HomeComponent = Vue.component("home", {
 		projectData: Array,
 		currentBubble: Object
 	},
-	template: "<div class=\"home-section\">\n\t\t\t<div class=\"overlay\" v-if=\"showHint\"></div>\n\t\t\t<section class=\"hint-container\" v-if=\"showHint\">\n\t\t\t\t<ul>\n\t\t\t\t\t<li class=\"point point-1\" ref=\"point1\"></li>\n\t\t\t\t\t<li class=\"point point-2\" ref=\"point2\"></li>\n\t\t\t\t\t<li class=\"point point-3\" ref=\"point3\"></li>\n\t\t\t\t</ul>\n\t\t\t\t<div class=\"circle\">\n\t\t\t\t\t<p v-html=\"hintBlurb\" class=\"hint\"></p>\n\t\t\t\t</div>\n\t\t\t\t<button role=\"button\" class=\"close\" v-html=\"closeSymbol\" @click=\"closeHint\"></button>\n\t\t\t</section>\n\t\t\t<section class=\"directory-container\" :class=\"{ active: openDirectory }\">\n\t\t\t\t<blockquote>jump to project</blockquote>\n\t\t\t\t<ul>\n\t\t\t\t\t<li v-for=\"(project, i) in projectData\" @click=\"directorySelect(i)\"> {{ project.shortTitle }} </li>\n\t\t\t\t</ul>\n\t\t\t\t<button role=\"button\" type=\"button\" class=\"directory\" @click=\"toggleDirectory\" :class=\"{ active: openDirectory }\"></button>\n\t\t\t</section>\n\t\t\t<section class=\"button-container\">\n\t\t\t\t<button role=\"button\" type=\"button\" class=\"left-scroll\" v-if=\"!isMobile\" @click=\"scrollRibbon(-1)\" :class=\"{ hidden: endOfLeft }\"></button>\n\t\t\t\t<button role=\"button\" type=\"button\" class=\"right-scroll\" v-if=\"!isMobile\" @click=\"scrollRibbon(1)\" :class=\"{ hidden: endOfRight }\"></button>\n\t\t\t</section>\n\t\t\t<section class=\"ribbon-container\" v-touch:swipe.left=\"scrollRibbon\" v-touch:swipe.right=\"scrollRibbon\">\n\t\t\t\t<nav class=\"ribbon\" ref=\"ribbon\" :style=\"{ left: x + 'px' }\">\n\t\t\t\t\t<a v-bind:href=\"project.link\" v-for=\"(project, i) in projectData\" target=\"_blank\">\n\t\t\t\t\t\t<li :style=\"{ 'background-image': 'url(' + project.image + ')' }\"></li>\n\t\t\t\t\t</a>\n\t\t\t\t</nav>\n\t\t\t</section>\n\t\t\t<blockquote v-html=\"scrollSwipeBlurb\" class=\"blurb\"></blockquote>\n\t\t</div>",
+	template: "<div class=\"home-section\">\n\t\t\t<div class=\"overlay\" v-if=\"showHint\"></div>\n\t\t\t<section class=\"hint-container\" v-if=\"showHint\">\n\t\t\t\t<ul>\n\t\t\t\t\t<li class=\"point point-1\" ref=\"point1\"></li>\n\t\t\t\t\t<li class=\"point point-2\" ref=\"point2\"></li>\n\t\t\t\t\t<li class=\"point point-3\" ref=\"point3\"></li>\n\t\t\t\t</ul>\n\t\t\t\t<div class=\"circle\">\n\t\t\t\t\t<p v-html=\"hintBlurb\" class=\"hint\"></p>\n\t\t\t\t</div>\n\t\t\t\t<button role=\"button\" class=\"close\" v-html=\"closeSymbol\" @click=\"closeHint\"></button>\n\t\t\t</section>\n\t\t\t<section class=\"directory-container\" :class=\"{ active: openDirectory }\">\n\t\t\t\t<blockquote>jump to project</blockquote>\n\t\t\t\t<ul>\n\t\t\t\t\t<li v-for=\"(project, i) in projectData\" @click=\"directorySelect(i)\"> {{ project.shortTitle }} </li>\n\t\t\t\t</ul>\n\t\t\t\t<button role=\"button\" type=\"button\" class=\"directory\" @click=\"toggleDirectory\" :class=\"{ active: openDirectory }\"></button>\n\t\t\t</section>\n\t\t\t<section class=\"button-container\">\n\t\t\t\t<button role=\"button\" type=\"button\" class=\"left-scroll\" ref=\"left\" v-if=\"!isMobile\" @click=\"scrollRibbon(-1)\" :class=\"{ hidden: endOfLeft }\">\n\t\t\t\t\t<div class=\"small\"></div>\n\t\t\t\t\t<div class=\"large\"></div>\n\t\t\t\t</button>\n\t\t\t\t<button role=\"button\" type=\"button\" class=\"right-scroll\" ref=\"right\" v-if=\"!isMobile\" @click=\"scrollRibbon(1)\" :class=\"{ hidden: endOfRight }\">\n\t\t\t\t\t<div class=\"large\"></div>\n\t\t\t\t\t<div class=\"small\"></div>\n\t\t\t\t</button>\n\t\t\t</section>\n\t\t\t<section class=\"ribbon-container\" v-touch:swipe.left=\"scrollRibbon\" v-touch:swipe.right=\"scrollRibbon\">\n\t\t\t\t<nav class=\"ribbon\" ref=\"ribbon\" :style=\"{ left: x + 'px' }\">\n\t\t\t\t\t<a v-bind:href=\"project.link\" v-for=\"(project, i) in projectData\" target=\"_blank\">\n\t\t\t\t\t\t<li :style=\"{ 'background-image': 'url(' + project.image + ')' }\"></li>\n\t\t\t\t\t</a>\n\t\t\t\t</nav>\n\t\t\t</section>\n\t\t\t<blockquote v-html=\"scrollSwipeBlurb\" class=\"blurb\"></blockquote>\n\t\t</div>",
 	data: function data() {
 		return {
 			x: -23,
@@ -15,7 +15,7 @@ var HomeComponent = Vue.component("home", {
 			hintBlurb: String,
 			openDirectory: false,
 			showHint: false,
-			tl: new TimelineMax(),
+			hintTl: new TimelineMax(),
 			closeSymbol: "&times;"
 		};
 	},
@@ -29,6 +29,37 @@ var HomeComponent = Vue.component("home", {
 		TweenMax.delayedCall(1, function () {
 			_this.showHint = true;
 		});
+
+		if (this.$refs.left) {
+
+			var leftFirst = void 0,
+			    leftLast = void 0,
+			    rightFirst = void 0,
+			    rightLast = void 0;
+
+			leftFirst = TweenMax.to(this.$refs.left.firstChild, 0.5, { x: -20, scale: 0.8, yoyo: true, repeat: -1, repeatDelay: 1, ease: Bounce.easeIn });
+			leftLast = TweenMax.to(this.$refs.left.lastChild, 0.5, { x: -20, scale: 0.8, yoyo: true, repeat: -1, repeatDelay: 1, ease: Bounce.easeIn });
+			rightFirst = TweenMax.to(this.$refs.right.firstChild, 0.5, { x: 20, scale: 0.8, yoyo: true, repeat: -1, repeatDelay: 1, ease: Bounce.easeIn });
+			rightLast = TweenMax.to(this.$refs.right.lastChild, 0.5, { x: 20, scale: 0.8, yoyo: true, repeat: -1, repeatDelay: 1, ease: Bounce.easeIn });
+
+			this.$refs.left.addEventListener("mouseover", function (e) {
+				leftFirst.kill();
+				leftLast.kill();
+			});
+			this.$refs.left.addEventListener("mouseout", function (e) {
+				leftFirst.play();
+				leftLast.play();
+			});
+
+			this.$refs.right.addEventListener("mouseover", function (e) {
+				rightFirst.kill();
+				rightLast.kill();
+			});
+			this.$refs.right.addEventListener("mouseout", function (e) {
+				rightFirst.play();
+				rightLast.play();
+			});
+		}
 	},
 	watch: {
 		currentBubble: function currentBubble() {
@@ -48,10 +79,9 @@ var HomeComponent = Vue.component("home", {
 
 			if (this.showHint) {
 				Vue.nextTick(function () {
-					console.log(_this2.$refs.point1);
-					_this2.tl.to(_this2.$refs.point3, 0.2, { opacity: 1, delay: 0.2 });
-					_this2.tl.to(_this2.$refs.point2, 0.2, { opacity: 1 });
-					_this2.tl.to(_this2.$refs.point1, 0.2, { opacity: 1 });
+					_this2.hintTl.to(_this2.$refs.point3, 0.2, { opacity: 1, delay: 0.2 });
+					_this2.hintTl.to(_this2.$refs.point2, 0.2, { opacity: 1 });
+					_this2.hintTl.to(_this2.$refs.point1, 0.2, { opacity: 1 });
 				});
 			}
 		}
