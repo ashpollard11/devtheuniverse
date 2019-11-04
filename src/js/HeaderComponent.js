@@ -1,12 +1,12 @@
 let HeaderComponent = Vue.component("heading", {
 	props: {
-		currentBubble: Object
+		// currentBubble: Object
 	},
 	template:
 		`<header>
 			<h1 v-html="currentBubble.title" v-if="!isHidden" :class="{ hidden: isHidden }"></h1>
 			<h1 v-else class="about-heading" :class="{ active: isHidden }" v-html="aboutHeading"></h1>
-			<router-link to="/about">
+			<router-link to="/home">
 				<div ref="logo" class="logo" :src="logoSrc" @click="hideHome(isHidden)" :style="{ 'background-image': 'url(' + logoSrc + ')' }">
 					<p v-html="nextPath" class="nextPath" :class="{ about: isHidden, portfolio: !isHidden }"></p>
 				</div>

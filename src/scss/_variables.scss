@@ -4,6 +4,10 @@ $desktop-breakpoint: 1024px;
 $large-desktop-breakpoint: 1024px;
 
 $dtuBlue: #b3e9fe;
+$dtuWhite: #fffdf7;
+$dtuBlack: #0f0f11;
+
+//dtuBlue as rgba: rgba(179, 233, 254, 0.9);
 
 @mixin bp-sm-mobile {
 	@media only screen and (min-height: $sm-mobile-breakpoint) {

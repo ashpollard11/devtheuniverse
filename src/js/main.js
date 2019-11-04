@@ -2,7 +2,7 @@ const router = new VueRouter({
 	routes: [
 		//{ path: '/', component: HomeComponent },
 		{ path: '/portfolio', component: HomeComponent },
-		{ path: '/about', component: AboutComponent },
+		// { path: '/about', component: AboutComponent },
 	//   { path: '/versus', component: VersusComponent }
 	]	// routes  short for `routes: routes`
 })
@@ -11,8 +11,9 @@ var app = new Vue({
 	el: '#app',
 	router: router,
 	data: {
-		projectData: Object,
-		currentBubble: Object
+		content: Object,
+		sequenceNum: 0,
+		currentSequence: Object
 	},
 	watch: {
 		
@@ -21,22 +22,23 @@ var app = new Vue({
 
 	},
 	created: function () {
-		router.push('/portfolio');
-		this.projectData = projectDataset;
-		this.currentBubble = this.projectData[0];
+		// router.push('/portfolio');
+		this.content = content;
+		this.currentSequence = this.content["sequence_" + this.sequenceNum];
+		console.log(this.currentSequence)
 	},
 	methods: {
-		nextBubble: function(direction) {
-			let nextDirection = this.currentBubble.i + direction;
-			console.log("next bubble", nextDirection)
-			this.currentBubble = this.projectData[nextDirection];
-		},
-		exitPortfolio: function() {
-			this.currentBubble = this.projectData[0];
-		},
-		directSelectBubble: function(selection) {
-			this.currentBubble = this.projectData[selection];
-		}
+		// nextBubble: function(direction) {
+		// 	let nextDirection = this.currentBubble.i + direction;
+		// 	console.log("next bubble", nextDirection)
+		// 	this.currentBubble = this.projectData[nextDirection];
+		// },
+		// exitPortfolio: function() {
+		// 	this.currentBubble = this.projectData[0];
+		// },
+		// directSelectBubble: function(selection) {
+		// 	this.currentBubble = this.projectData[selection];
+		// }
 	}
 })
 
@@ -139,10 +141,10 @@ var app = new Vue({
 particlesJS("particles-js", {
 	particles: {
 		number: { value: 160, density: { enable: true, value_area: 800 } },
-		color: { value: "#ff6d00" },
+		color: { value: "#0f0f11" },
 		shape: {
 			type: "circle",
-			stroke: { width: 0, color: "#000000" },
+			stroke: { width: 0, color: "#0f0f11" },
 			polygon: { nb_sides: 5 },
 			image: { src: "img/github.svg", width: 100, height: 100 }
 		},

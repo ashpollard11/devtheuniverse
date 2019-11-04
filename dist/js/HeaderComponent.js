@@ -2,9 +2,9 @@
 
 var HeaderComponent = Vue.component("heading", {
 	props: {
-		currentBubble: Object
+		// currentBubble: Object
 	},
-	template: "<header>\n\t\t\t<h1 v-html=\"currentBubble.title\" v-if=\"!isHidden\" :class=\"{ hidden: isHidden }\"></h1>\n\t\t\t<h1 v-else class=\"about-heading\" :class=\"{ active: isHidden }\" v-html=\"aboutHeading\"></h1>\n\t\t\t<router-link to=\"/about\">\n\t\t\t\t<div ref=\"logo\" class=\"logo\" :src=\"logoSrc\" @click=\"hideHome(isHidden)\" :style=\"{ 'background-image': 'url(' + logoSrc + ')' }\">\n\t\t\t\t\t<p v-html=\"nextPath\" class=\"nextPath\" :class=\"{ about: isHidden, portfolio: !isHidden }\"></p>\n\t\t\t\t</div>\n\t\t\t</router-link>\n\t\t</header>",
+	template: "<header>\n\t\t\t<h1 v-html=\"currentBubble.title\" v-if=\"!isHidden\" :class=\"{ hidden: isHidden }\"></h1>\n\t\t\t<h1 v-else class=\"about-heading\" :class=\"{ active: isHidden }\" v-html=\"aboutHeading\"></h1>\n\t\t\t<router-link to=\"/home\">\n\t\t\t\t<div ref=\"logo\" class=\"logo\" :src=\"logoSrc\" @click=\"hideHome(isHidden)\" :style=\"{ 'background-image': 'url(' + logoSrc + ')' }\">\n\t\t\t\t\t<p v-html=\"nextPath\" class=\"nextPath\" :class=\"{ about: isHidden, portfolio: !isHidden }\"></p>\n\t\t\t\t</div>\n\t\t\t</router-link>\n\t\t</header>",
 	data: function data() {
 		return {
 			isHidden: false,

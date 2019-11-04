@@ -21,9 +21,9 @@
 
 		<div id="app">
 			<div id="particles-js"></div>
-			<heading :current-bubble="currentBubble" @exitportfolio="exitPortfolio"></heading>
-			<router-view :project-data="projectData" :current-bubble="currentBubble" @nextbubble="nextBubble" @directselectbubble="directSelectBubble"></router-view>
-			<footing></footing>
+			<!-- <heading></heading> -->
+			<router-view :current-sequence="currentSequence"></router-view>
+			<!-- <footing></footing> -->
 		</div>
 
 
@@ -41,13 +41,14 @@
 
 		<script src="dist/js/TweenMax.min.js"></script>
 		<script src="dist/js/TimelineMax.min.js"></script>
+		<script src="dist/js/DrawSVGPlugin.min.js"></script>
 
 		
-		<script src="dist/js/project_data.js"></script>
+		<script src="dist/js/content.js"></script>
 		<script src="dist/js/HomeComponent.js"></script>
-		<script src="dist/js/AboutComponent.js"></script>
-		<script src="dist/js/HeaderComponent.js"></script>
-		<script src="dist/js/FooterComponent.js"></script>
+		<!-- <script src="dist/js/AboutComponent.js"></script> -->
+		<!-- <script src="dist/js/HeaderComponent.js"></script> -->
+		<!-- <script src="dist/js/FooterComponent.js"></script> -->
 		<script src="dist/js/main.js"></script>
 
 	</body>
