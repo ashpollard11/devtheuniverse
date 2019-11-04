@@ -5,25 +5,6 @@ let HomeComponent = Vue.component("home", {
 	},
 	template:
 		`<div class="home-section">
-			<div class="overlay" v-if="showHint"></div>
-			<section class="hint-container" v-if="showHint">
-				<ul>
-					<li class="point point-1" ref="point1"></li>
-					<li class="point point-2" ref="point2"></li>
-					<li class="point point-3" ref="point3"></li>
-				</ul>
-				<div class="circle">
-					<p v-html="hintBlurb" class="hint"></p>
-				</div>
-				<button role="button" class="close" v-html="closeSymbol" @click="closeHint"></button>
-			</section>
-			<section class="directory-container" :class="{ active: openDirectory }">
-				<blockquote>jump to project</blockquote>
-				<ul>
-					<li v-for="(project, i) in projectData" @click="directorySelect(i)"> {{ project.shortTitle }} </li>
-				</ul>
-				<button role="button" type="button" class="directory" @click="toggleDirectory" :class="{ active: openDirectory }"></button>
-			</section>
 			<section class="button-container">
 				<button role="button" type="button" class="left-scroll" ref="left" v-if="!isMobile" @click="scrollRibbon(-1)" :class="{ hidden: endOfLeft }">
 					<div class="small"></div>
