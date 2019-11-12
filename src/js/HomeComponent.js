@@ -167,30 +167,40 @@ let HomeComponent = Vue.component("home", {
 	},
 	template:
 		`<div class="main-sequence">
-			<article class="primary-content">
-				<h1 v-if="currentSequence.h1" v-html="currentSequence.h1"></h1>
+			<aside class="secondary-content" ref="secondary-content">
+				<h2 v-if="content.secondary" v-html="content.secondary.h2"></h2>
+			</aside>
+			<article class="primary-content" ref="primary_content">
+				<h1 v-if="content.h1" v-html="content.h1"></h1>
+				<h2 v-if="content.h2" v-html="content.h2"></h2>
 				<div class="arrow" role="button" ref="arrow" @click="nextSequence()">
 					<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 162.66 170.52">
 						<path class="arrow_path" ref="arrow_path1" d="M.52,153.48c0-5.09,0-10.19,0-15.29a2.05,2.05,0,0,1,.67-1.58q25-25.2,50-50.4c.92-.94.92-.94,0-1.89q-25-25.21-50-50.4a2.07,2.07,0,0,1-.65-1.6Q.53,17,.52,1.74a1.33,1.33,0,0,1,0-.2c0-.36-.12-.81.3-1s.56.3.77.51q8,8.07,16.06,16.15Q51,50.8,84.39,84.35c.74.73.76,1.1,0,1.85q-41,41.19-81.94,82.43a11.5,11.5,0,0,1-.86.85c-.24.19-.36.69-.77.49s-.32-.63-.32-1q0-4.75,0-9.51Z"/>
 						<path class="arrow_path" ref="arrow_path2" d="M77.6,153.41c0-5,0-9.93,0-14.89a2.77,2.77,0,0,1,.93-2.19Q103.25,111.46,128,86.56c1.27-1.29,1.27-1.29,0-2.54Q103.16,59,78.32,34a2.3,2.3,0,0,1-.73-1.77q0-15.22,0-30.47a3.13,3.13,0,0,1,0-.81c.1-.43.34-.68.78-.28.17.16.33.34.5.5l82.44,83.07a5.81,5.81,0,0,0,.43.43c.56.4.46.71,0,1.17-2.87,2.85-5.72,5.74-8.57,8.61L79,169.28l-.5.5c-.48.49-.71.14-.84-.28a2.73,2.73,0,0,1,0-.81Z"/>
 					</svg>
 				</div>
-			
 			</article>
 		</div>`,
 	data: function() {
 		return {
-
+			timelineActive: false,
+			content: this.currentSequence
 		}
 	},
 	mounted: function() {
-
 		var tl = new TimelineMax({});
-		tl.fromTo(this.$refs.arrow_path1, 0.4, {drawSVG:"0%"}, {drawSVG:"0% 100%"})
-		tl.fromTo(this.$refs.arrow_path2, 0.4, {drawSVG:"0%"}, {drawSVG:"0% 100%"});
+		tl.fromTo(this.$refs.arrow_path1, 0.4, {drawSVG: "0%"}, {drawSVG: "0% 100%"})
+		tl.fromTo(this.$refs.arrow_path2, 0.4, {drawSVG: "0%"}, {drawSVG: "0% 100%"});
 	},
 	watch: {
-		
+		timelineActive: function() {
+			if (this.timelineActive) {
+
+			}
+		},
+		currentSequence: function() {
+			this.content = this.currentSequence;
+		}
 	},
 	computed: {
 		isMobile: function() {
@@ -203,6 +213,28 @@ let HomeComponent = Vue.component("home", {
 	},
 	methods: {
 		nextSequence: function() {
+
+			this.timelineActive = true;
+			let previousHeight = getComputedStyle(this.$refs.primary_content).height;
+
+			
+			
+			var tl = new TimelineMax({});
+			tl.add(() => { 
+				this.content = "";
+				this.$refs.primary_content.classList.add("transitioning");
+			})
+			tl.to(this.$refs.primary_content, 0.4, {height: 0.1, transformOrigin: "center center", delay: 0.2})
+			tl.to(this.$refs.primary_content, 0.4, {height: previousHeight, transformOrigin: "center center", delay: 0.4})
+			tl.add(() => { 
+				this.$emit("updatesequence");
+				this.$refs.primary_content.classList.remove("transitioning");
+				this.content = this.currentSequence;
+				console.log(this.content.h1)
+				this.$nextTick(() => {
+					if(this.content.class) this.$refs.primary_content.classList.add(this.content.class);
+				})
+			})
 			
 		}
 	}

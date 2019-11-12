@@ -42,7 +42,7 @@ body {
 	width: 100%;
 	min-height: 100vh;
 	//overflow: hidden;
-	color: #fff;
+	color: #000;
 	background: $dtuWhite;
 	font-family: 'Caviar Dreams';
 	font-size: 18px;
@@ -51,6 +51,34 @@ body {
 	h1 {
 		color: $dtuBlack;
 		font-size: 24px;
+
+		@include bp-tablet {
+			font-size: 34px;
+		}
+
+		@include bp-desktop {
+			font-size: 40px;
+		}
+	}
+
+	h2 {
+		color: $dtuBlack;
+		font-size: 22px;
+
+		@include bp-tablet {
+			font-size: 32px;
+		}
+
+		@include bp-desktop {
+			font-size: 36px;
+		}
+	}
+
+	h1, h2 {
+
+		span {
+			font-weight: bold;
+		}
 	}
 }
 
@@ -69,14 +97,17 @@ body {
 	.main-sequence {
 		width: 100%;
 		height: 100vh;
+		padding: 20px 0;
 		@include flex-center;
 
 		.primary-content {
 			position: relative;
 			width: 90%;
 			height: 85%;
+			max-width: 422px;
+			max-height: 470px;
 			background: rgba(35, 96, 176, 0.9);
-			padding: 40px 0 0 20px;
+			padding: 40px 20px;
 			border: 1px solid $dtuBlack;
 
 			background: linear-gradient(43deg, #b3e9fe, #634099);
@@ -86,31 +117,71 @@ body {
 			-moz-animation: dtu-gradient 15s ease infinite;
 			animation: dtu-gradient 15s ease infinite;
 
-			h1 {
-				line-height: 1.3;
+			@include bp-tablet {
+				width: 75%;
+				height: 50%;
+				max-height: unset;
+				max-width: 618px;
+			}
 
-				span {
-					font-weight: bold;
-				}
+			@include bp-desktop {
+				max-width: 550px;
+				height: 55%;
+				align-self: flex-start;
+				margin: 0 0 0 40px;
+			}
+
+			h1, h2 {
+				line-height: 1.3;
 			}
 
 			.arrow {
-				width: 47px;
+				width: 50px;
 				position: absolute;
 				bottom: 40px;
 				right: 20px;
+				cursor: pointer;
 
 				svg {
+					overflow: visible;
+
 					path {
-						stroke-width: 4px;
+						stroke-width: 5px;
 						fill: none;
 						stroke: black;
+						
+						@include bp-desktop {
+							stroke-width: 8px;
+						}
 					}
+				}
+			}
+
+			&.transitioning {
+				
+				padding: 0;
+
+				.arrow {
+					display: none;
 				}
 			}
 		}
 
+		.sequence-1 {
+			
+		}
+	}
 
+	.secondary-content {
+		position: relative;
+		width: 90%;
+		height: 85%;
+		max-width: 422px;
+		max-height: 470px;
+		background: rgba(35, 96, 176, 0.9);
+		padding: 40px 20px;
+		border: 1px solid $dtuBlack;
+		margin: 0 0 20px 0;
 	}
 
 

@@ -12,22 +12,27 @@ var app = new Vue({
 	router: router,
 	data: {
 		content: Object,
-		sequenceNum: 0,
-		currentSequence: Object
+		sequenceNum: 0
 	},
 	watch: {
-		
+
 	},
 	computed: {
-
+		currentSequence: function() {
+			return this.content["sequence_" + this.sequenceNum];
+		}
 	},
 	created: function () {
 		// router.push('/portfolio');
 		this.content = content;
-		this.currentSequence = this.content["sequence_" + this.sequenceNum];
-		console.log(this.currentSequence)
+		// this.currentSequence = this.content["sequence_" + this.sequenceNum];
 	},
 	methods: {
+		updateSequence: function() {
+			this.sequenceNum++;
+			console.log(this.currentSequence)
+
+		}
 		// nextBubble: function(direction) {
 		// 	let nextDirection = this.currentBubble.i + direction;
 		// 	console.log("next bubble", nextDirection)

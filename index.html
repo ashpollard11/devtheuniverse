@@ -22,7 +22,7 @@
 		<div id="app">
 			<div id="particles-js"></div>
 			<!-- <heading></heading> -->
-			<router-view :current-sequence="currentSequence"></router-view>
+			<router-view :current-sequence="currentSequence" @updatesequence="updateSequence" ></router-view>
 			<!-- <footing></footing> -->
 		</div>
 
