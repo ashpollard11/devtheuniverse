@@ -170,17 +170,68 @@ let HomeComponent = Vue.component("home", {
 	},
 	template:
 		`<div class="content">
-			<article class="hero-content" ref="hero_content">
+			<section class="hero-content" ref="hero_content">
 				<div ref="ash-icon" class="ash-icon" :src="iconSrc" :style="{ 'background-image': 'url(' + iconSrc + ')' }"></div>
 				<blockquote class="blockquote-carousel">
 					<div class="carousel-container" ref="carousel_container" v-html="homeContent.blockquote_carousel"></div>
 				</blockquote>
 				<h1 v-for="(lines, i) in homeContent.h1" v-html="lines"></h1>
-			</article>
-			<div class="scroll-prompt">
-				<div ref="scroll_arrow" class="scroll-arrow" :src="arrowSrc" :style="{ 'background-image': 'url(' + arrowSrc + ')' }"></div>
-				<p>learn more about my work</p>
-			</div>
+				<div class="scroll-prompt">
+					<p>learn more about my work</p>
+					<div ref="scroll_arrow" class="scroll-arrow" :src="arrowSrc" :style="{ 'background-image': 'url(' + arrowSrc + ')' }"></div>
+				</div>
+			</section>
+			<section class="about-content" ref="about_content">
+				<article>
+					<div class="article-head">
+						<h2>Front-End Developer</h2>
+						<p>I like to be experimental and push the boundaries of web development. Micro-interactions and finding visual balance are major parts of my process.</p>
+					</div>
+					<div class="toolbox">
+						<h3>My languages and toolbox includes:</h3>
+						<p>HTML</p>
+						<p>CSS</p>
+						<p>SCSS</p>
+						<p>JavaScript</p>
+						<p>Vue.JS</p>
+						<p>JSON</p>
+						<p>Gulp</p>
+						<p>Github</p>
+						<p>Bitbucket</p>
+						<p>Terminal</p>
+					</div>
+				</article>
+				<article>
+					<div class="article-head">
+						<h2>Game Developer</h2>
+						<p>I build games that are visually exciting, challenging, creative, and most of all, <span>fun!</span> Game development gives me a unique advantage as a problem solver that explores countless puzzles and solutions.</p>
+					</div>
+					<div class="toolbox">
+						<h3>My toolbox also includes:</h3>
+						<p>PIXI.JS</p>
+						<p>Create.JS</p>
+						<p>Spine Animation Development</p>
+						<p>Adobe Animation Development</p>
+						<p>Unity</p>
+						<p>C#</p>
+					</div>
+				</article>
+				<article>
+					<div class="article-head">
+						<h2>Illustrator</h2>
+						<p>My career started with illustration, and that paved the way for me to become a developer. Overall, my passion lies in creating art.</p>
+					</div>
+					<div class="toolbox">
+						<h3>My tools include:</h3>
+						<p>Adobe Illustrator</p>
+						<p>Adobe Photophop</p>
+						<p>Graphite/Pen &amp; Paper</p>
+						<p>Acrylic and Watercolor Paint</p>
+						<p>Color Pencils</p>
+						<p>Anything I can use to draw, really.</p>
+					</div>
+				</article>
+			</section>
 		</div>`,
 	data: function() {
 		return {

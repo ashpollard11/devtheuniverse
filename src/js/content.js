@@ -4,11 +4,8 @@ const config = {
 			"Hi, I'm Ashley Pollard. I'm an <span>Interactive &amp; Front End Developer.</span>",
 			"I create <span>user-driven interactive experiences</span> within <span>web-based</span> environments."
 		],
-		blockquote_carousel: "<span>web dev.</span><span>game dev.</span><span>UI/UX.</span><span>interactive.</span>"
+		blockquote_carousel: "<span>web dev.</span><span>game dev.</span><span>UX/UI.</span><span>interactive.</span>"
 	},
-	// sequence_1: {
-	// 	class: "sequence-1",
-	// 	h3: "My primary technologies:",
 	// 	ul: [
 	// 		`<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>HTML5</title> <path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.564-2.438L1.5 0zm7.031 9.75l-.232-2.718 10.059.003.23-2.622L5.412 4.41l.698 8.01h9.126l-.326 3.426-2.91.804-2.955-.81-.188-2.11H6.248l.33 4.171L12 19.351l5.379-1.443.744-8.157H8.531z"/></svg>`,
 	// 		`<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>CSS3</title><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.002-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.855L12 19.288l5.373-1.53L18.59 4.414z"/></svg>`,
@@ -24,65 +21,61 @@ const config = {
 	// 		`<svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Gulp</title><path d="M15.156 19.432l.636-1.084s-1.444.591-3.86.591c-2.418 0-3.84-.568-3.84-.568l.711 1.183.252 3.729c0 .403 1.314.718 2.936.718 1.623 0 2.938-.314 2.938-.718l.229-3.835v-.016zm.615-7.046c-.769.046-1.153.903-1.539 1.805-.143.33-.63 1.737-.948 1.563-.318-.173.413-1.329.619-2.017-.237.174-1.105.849-1.329.215-.358.314-1.129.48-1.042-.329-.191.345-.621.823-1.139.614-.673-.255.395-2.411.66-2.307.266.121-.053.6-.136.794-.186.419-.398.958-.255 1.063.24.194.904-.703.919-.719.124-.165.479-1.229.763-1.107.285.134-.711 1.541-.34 1.826.076.06.383-.03.569-.239.12-.12.078-.42.479-1.378.404-.959.764-2.156 1.039-2.066s.049.703-.051.943c-.464 1.078-1.268 2.844-.89 2.71.374-.135.569-.135.943-.569.374-.434.345-1.152.599-1.137.24.014.21.254.15.418.24-.27 1.152-.868 1.363-.284.254.688-1.304 1.692-.914 1.632.375-.045.988-.434 1.258-.793l.719-6.5s-.734.6-5.361.6-5.284-.584-5.284-.584l.613 5.93c.33-.928 1.108-2.814 2.322-2.74.554.03 1.303 1.109.658 1.139-.27.015-.3-.539-.614-.614-.239-.046-.554.135-.763.345-.404.404-1.304 2.006-1.184 2.801.15 1.018 1.407-.346 1.617-.75.149-.283.254-1.138.568-1.048.33.09-.029.974-.27 1.737-.27.869-.404 1.781-.732 1.676-.33-.104.209-1.227.178-1.422-.313.299-.883 1.02-1.631.659l.374 3.699s1.019.793 4.073.793 4.118-.793 4.118-.793l.479-4.283c-.389.39-1.617 1.063-1.692.3-.059-.614 1.333-1.498.974-1.514l.06-.069zM17.346.669l-2.659 2.8-.486 1.901c1.881.12 3.189.386 3.189.694 0 .419-2.414.757-5.391.757s-5.39-.343-5.39-.763c0-.419 2.414-.764 5.391-.764.423 0 .844 0 1.264.016l.561-2.276L16.65.039c.068-.09.28-.015.474.15.194.149.299.344.239.434v.03l-.017.016zm-3.834 5.795s-.523 0-.61-.08c-.022-.025-.036-.058-.036-.09 0-.058.039-.091.09-.11l.044.075c-.021.006-.029.015-.033.023 0 .041.314.069.555.066.239-.003.531-.023.533-.064 0-.012-.023-.023-.061-.033l.045-.072c.063.02.117.058.117.121 0 .11-.141.128-.23.141-.107.015-.412.023-.412.023h-.002z"/></svg>`
 	// 	]
 	// },
-	sequence_2: {
-		class: "sequence-2",
-		h3: "View my Portfolio:",
-		ul: [
-			// `<a href="../../links/exploded-guitars.html" target="_blank"><img src="../../dist/img/guitars.png" alt="exploded guitars"></a>`
-			// {
-			// 	title: "<span>Exploded Guitars &mdash; MODA</span><br/><br/>Vue.JS, 3D Animation",
-			// 	shortTitle: "Exploded Guitars &mdash; MODA",
-			// 	link: "../../links/exploded-guitars.html",
-			// 	image: "../../dist/img/guitars.png",
-			// },
-			// {
-			// 	title: "<span>Slow It Down</span><br/><br/>Pixi.JS, Create.JS, Spine Animation",
-			// 	shortTitle: "Slow It Down",
-			// 	link: "https://sesamestreetincommunities.org/interactive-assets/SSIC063_SlowItDown/",
-			// 	image: "../../dist/img/slow.png",
-			// },
-			// {
-			// 	title: "<span>Across The Campus</span><br/><br/>Vanilla JavaScript, Node.JS, Express &amp; Responsive CSS",
-			// 	shortTitle: "Across The Campus",
-			// 	link: "node/index.html",
-			// 	image: "../../dist/img/across-the-campus.png",
-			// },
-			// {
-			// 	title: "<span>Zoe's Pet Shelter</span><br/><br/>HTML5 Canvas &amp; Create.JS",
-			// 	shortTitle: "Zoe's Pet Shelter",
-			// 	link: "https://www.sesamestreet.org/games?id=25778",
-			// 	image: "../../dist/img/zoes_pet_shelter.png",
-			// },
-			// {
-			// 	title: "<span>KR Steakbar</span><br/><br/>Vanilla JavaScript, DrawSVG, MorphSVG &amp; Responsive CSS",
-			// 	shortTitle: "KR Steakbar",
-			// 	link: "teams2/index.html",
-			// 	image: "../../dist/img/table80-3.jpg",
-			// },
-			// {
-			// 	title: "<span>Rick &amp; Morty Battles</span><br/><br/>Vue.JS, TweenMax &amp; Responsive CSS",
-			// 	shortTitle: "Rick & Morty Battles",
-			// 	link: "vue/final/index.html",
-			// 	image: "../../dist/img/rm-bg.jpg",
-			// },
-			// {
-			// 	title: "<span>Around the Plate</span><br/><br/>Vanilla JavaScript, AJAX &amp; Responsive CSS for Mobile &amp; Tablet",
-			// 	shortTitle: "Around the Plate",
-			// 	link: "ajax/index.html",
-			// 	image: "../../dist/img/around-the-plate.png",
-			// },
-			// {
-			// 	title: "<span>Aesthetic Me</span><br/><br/>React.JS, Redux &amp; Responsive CSS",
-			// 	shortTitle: "Aesthetic Me",
-			// 	link: "react/",
-			// 	image: "../../dist/img/unicornhangover.jpg",
-			// },
-			// {
-			// 	title: "<span>Kayla's Playground</span><br/><br/>Unity &amp; C#",
-			// 	shortTitle: "Kayla's Playground",
-			// 	link: "https://simmer.io/@devtheuniverse/~5792c22a-df5f-505f-c0e1-1a06675531e5",
-			// 	image: "../../dist/img/kaylapg.png",
-			// }
-		]
-	}
+// ul: [
+	// `<a href="../../links/exploded-guitars.html" target="_blank"><img src="../../dist/img/guitars.png" alt="exploded guitars"></a>`
+	// {
+	// 	title: "<span>Exploded Guitars &mdash; MODA</span><br/><br/>Vue.JS, 3D Animation",
+	// 	shortTitle: "Exploded Guitars &mdash; MODA",
+	// 	link: "../../links/exploded-guitars.html",
+	// 	image: "../../dist/img/guitars.png",
+	// },
+	// {
+	// 	title: "<span>Slow It Down</span><br/><br/>Pixi.JS, Create.JS, Spine Animation",
+	// 	shortTitle: "Slow It Down",
+	// 	link: "https://sesamestreetincommunities.org/interactive-assets/SSIC063_SlowItDown/",
+	// 	image: "../../dist/img/slow.png",
+	// },
+	// {
+	// 	title: "<span>Across The Campus</span><br/><br/>Vanilla JavaScript, Node.JS, Express &amp; Responsive CSS",
+	// 	shortTitle: "Across The Campus",
+	// 	link: "node/index.html",
+	// 	image: "../../dist/img/across-the-campus.png",
+	// },
+	// {
+	// 	title: "<span>Zoe's Pet Shelter</span><br/><br/>HTML5 Canvas &amp; Create.JS",
+	// 	shortTitle: "Zoe's Pet Shelter",
+	// 	link: "https://www.sesamestreet.org/games?id=25778",
+	// 	image: "../../dist/img/zoes_pet_shelter.png",
+	// },
+	// {
+	// 	title: "<span>KR Steakbar</span><br/><br/>Vanilla JavaScript, DrawSVG, MorphSVG &amp; Responsive CSS",
+	// 	shortTitle: "KR Steakbar",
+	// 	link: "teams2/index.html",
+	// 	image: "../../dist/img/table80-3.jpg",
+	// },
+	// {
+	// 	title: "<span>Rick &amp; Morty Battles</span><br/><br/>Vue.JS, TweenMax &amp; Responsive CSS",
+	// 	shortTitle: "Rick & Morty Battles",
+	// 	link: "vue/final/index.html",
+	// 	image: "../../dist/img/rm-bg.jpg",
+	// },
+	// {
+	// 	title: "<span>Around the Plate</span><br/><br/>Vanilla JavaScript, AJAX &amp; Responsive CSS for Mobile &amp; Tablet",
+	// 	shortTitle: "Around the Plate",
+	// 	link: "ajax/index.html",
+	// 	image: "../../dist/img/around-the-plate.png",
+	// },
+	// {
+	// 	title: "<span>Aesthetic Me</span><br/><br/>React.JS, Redux &amp; Responsive CSS",
+	// 	shortTitle: "Aesthetic Me",
+	// 	link: "react/",
+	// 	image: "../../dist/img/unicornhangover.jpg",
+	// },
+	// {
+	// 	title: "<span>Kayla's Playground</span><br/><br/>Unity &amp; C#",
+	// 	shortTitle: "Kayla's Playground",
+	// 	link: "https://simmer.io/@devtheuniverse/~5792c22a-df5f-505f-c0e1-1a06675531e5",
+	// 	image: "../../dist/img/kaylapg.png",
+	// }
+// ]
 }
