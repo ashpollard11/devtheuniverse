@@ -10,25 +10,16 @@ var app = new Vue({
 	el: '#app',
 	router: router,
 	data: {
-		content: Object,
-		sequenceNum: 0
+		content: Object
 	},
 	watch: {},
-	computed: {
-		currentSequence: function currentSequence() {
-			return this.content["sequence_" + this.sequenceNum];
-		}
-	},
+	computed: {},
 	created: function created() {
 		// router.push('/portfolio');
-		this.content = content;
-		// this.currentSequence = this.content["sequence_" + this.sequenceNum];
+		this.content = config;
 	},
 	methods: {
-		updateSequence: function updateSequence() {
-			this.sequenceNum++;
-			console.log(this.currentSequence);
-		}
+
 		// nextBubble: function(direction) {
 		// 	let nextDirection = this.currentBubble.i + direction;
 		// 	console.log("next bubble", nextDirection)
@@ -121,10 +112,10 @@ var app = new Vue({
 particlesJS("particles-js", {
 	particles: {
 		number: { value: 160, density: { enable: true, value_area: 800 } },
-		color: { value: "#0f0f11" },
+		color: { value: "#e4bb40" },
 		shape: {
 			type: "circle",
-			stroke: { width: 0, color: "#0f0f11" },
+			stroke: { width: 0, color: "#e4bb40" },
 			polygon: { nb_sides: 5 },
 			image: { src: "img/github.svg", width: 100, height: 100 }
 		},

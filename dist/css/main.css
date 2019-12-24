@@ -17,6 +17,7 @@ TABLE OF CONTENTS:
    v2.0 | 20110126
    License: none (public domain)
 */
+@import url("https://fonts.googleapis.com/css?family=Lato|Manjari&display=swap");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -196,49 +197,32 @@ table {
 body {
 	width: 100%;
 	min-height: 100vh;
-	color: #000;
+	font-family: "Manjari", sans-serif;
+	color: #0f0f11;
 	background: #fffdf7;
-	font-family: 'Caviar Dreams';
 	font-size: 18px;
 	cursor: url(../../dist/img/logo-cursor.png), auto;
 }
 
+body h1, body h2 {
+	font-family: "Lato", sans-serif;
+}
+
 body h1 {
-	color: #0f0f11;
 	font-size: 24px;
 }
 
-@media only screen and (min-width: 768px) {
-	body h1 {
-		font-size: 34px;
-	}
-}
-
-@media only screen and (min-width: 1024px) {
-	body h1 {
-		font-size: 40px;
-	}
-}
-
-body h2 {
-	color: #0f0f11;
-	font-size: 22px;
-}
-
-@media only screen and (min-width: 768px) {
-	body h2 {
-		font-size: 32px;
-	}
-}
-
-@media only screen and (min-width: 1024px) {
-	body h2 {
-		font-size: 36px;
-	}
-}
-
-body h1 span, body h2 span {
+body h1 span {
 	font-weight: bold;
+}
+
+body h1, body h2, body h3 {
+	line-height: 1.3;
+	margin: 0 0 30px 0;
+}
+
+body p {
+	font-size: 18px;
 }
 
 #app {
@@ -247,96 +231,179 @@ body h1 span, body h2 span {
 	position: relative;
 }
 
-#app .main-sequence {
+#app header {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	width: 100%;
+	padding: 1em;
+}
+
+#app header a {
+	margin-left: auto;
+	text-decoration: none;
+	z-index: 1;
+}
+
+#app header a .logo {
+	background-position: center;
+	background-size: cover;
+	width: 65px;
+	height: 68px;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-align: end;
+	-moz-box-align: end;
+	-ms-flex-align: end;
+	-webkit-align-items: flex-end;
+	align-items: flex-end;
+}
+
+#app .content {
 	width: 100%;
 	height: 100vh;
-	padding: 20px 0;
+}
+
+#app .content .hero-content {
+	position: relative;
+	width: 100%;
+	padding: 1em;
+	color: #0f0f11;
+	text-align: center;
+}
+
+#app .content .hero-content .ash-icon {
+	background-position: center;
+	background-size: cover;
+	height: 272px;
+	margin: 0 0 30px 0;
+}
+
+#app .content .hero-content .blockquote-carousel {
+	font-family: "Caviar Dreams";
+	font-size: 50px;
+	text-transform: uppercase;
+	height: 50px;
+	overflow: hidden;
+	margin: 0 0 30px 0;
+}
+
+#app .content .hero-content .blockquote-carousel div {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
 	display: flex;
-	justify-content: center;
-	align-items: center;
+	-webkit-box-direction: normal;
+	-webkit-box-orient: vertical;
+	-moz-box-direction: normal;
+	-moz-box-orient: vertical;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
 	flex-direction: column;
 }
 
-#app .main-sequence .primary-content {
-	position: relative;
-	width: 90%;
-	height: 85%;
-	max-width: 422px;
-	max-height: 470px;
-	background: rgba(35, 96, 176, 0.9);
-	padding: 40px 20px;
-	border: 1px solid #0f0f11;
-	background: linear-gradient(43deg, #b3e9fe, #634099);
-	background-size: 400% 400%;
-	-webkit-animation: dtu-gradient 15s ease infinite;
-	-moz-animation: dtu-gradient 15s ease infinite;
-	animation: dtu-gradient 15s ease infinite;
+#app .content .hero-content .blockquote-carousel div span {
+	margin: 0 0 50px 0;
+}
+
+#app .content .hero-content h3 {
+	margin: 0 0 20px 0;
+	font-weight: bold;
+	text-align: center;
+}
+
+#app .content .hero-content ul {
+	display: -webkit-inline-box;
+	display: -moz-inline-box;
+	display: -webkit-inline-flex;
+	display: -ms-inline-flexbox;
+	display: inline-flex;
+	-webkit-flex-flow: row wrap;
+	-ms-flex-flow: row wrap;
+	flex-flow: row wrap;
+	-webkit-box-pack: center;
+	-moz-box-pack: center;
+	-ms-flex-pack: center;
+	-webkit-justify-content: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-moz-box-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
+	max-width: 246px;
 }
 
 @media only screen and (min-width: 768px) {
-	#app .main-sequence .primary-content {
-		width: 75%;
-		height: 50%;
-		max-height: unset;
-		max-width: 618px;
+	#app .content .hero-content ul {
+		max-width: 280px;
 	}
 }
 
-@media only screen and (min-width: 1024px) {
-	#app .main-sequence .primary-content {
-		max-width: 550px;
-		height: 55%;
-		align-self: flex-start;
-		margin: 0 0 0 40px;
+#app .content .hero-content ul li {
+	margin: 7px 7px 20px 7px;
+}
+
+#app .content .hero-content ul li svg {
+	width: 47px;
+}
+
+@media only screen and (min-width: 768px) {
+	#app .content .hero-content ul li svg {
+		width: 55px;
 	}
 }
 
-#app .main-sequence .primary-content h1, #app .main-sequence .primary-content h2 {
-	line-height: 1.3;
+#app .content .hero-content ul li svg path, #app .content .hero-content ul li svg circle {
+	fill: #fffdf7;
 }
 
-#app .main-sequence .primary-content .arrow {
-	width: 50px;
-	position: absolute;
-	bottom: 40px;
-	right: 20px;
-	cursor: pointer;
+#app .content .scroll-prompt {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-box-direction: normal;
+	-webkit-box-orient: vertical;
+	-moz-box-direction: normal;
+	-moz-box-orient: vertical;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-box-align: center;
+	-moz-box-align: center;
+	-ms-flex-align: center;
+	-webkit-align-items: center;
+	align-items: center;
 }
 
-#app .main-sequence .primary-content .arrow svg {
-	overflow: visible;
+#app .content .scroll-prompt .scroll-arrow {
+	background-repeat: no-repeat;
+	width: 35px;
+	height: 35px;
+	margin: 0 0 10px 0;
 }
 
-#app .main-sequence .primary-content .arrow svg path {
-	stroke-width: 5px;
-	fill: none;
-	stroke: black;
+#app::-webkit-scrollbar {
+	width: 6px;
 }
 
-@media only screen and (min-width: 1024px) {
-	#app .main-sequence .primary-content .arrow svg path {
-		stroke-width: 8px;
-	}
+#app::-webkit-scrollbar-track {
+	background: #ccc;
+	border-radius: 6px;
 }
 
-#app .main-sequence .primary-content.transitioning {
-	padding: 0;
-}
-
-#app .main-sequence .primary-content.transitioning .arrow {
-	display: none;
-}
-
-#app .secondary-content {
-	position: relative;
-	width: 90%;
-	height: 85%;
-	max-width: 422px;
-	max-height: 470px;
-	background: rgba(35, 96, 176, 0.9);
-	padding: 40px 20px;
-	border: 1px solid #0f0f11;
-	margin: 0 0 20px 0;
+#app::-webkit-scrollbar-thumb {
+	width: 0.3em;
+	background: #0f0f11;
+	border-radius: 6px;
 }
 
 /*# sourceMappingURL=main.css.map */

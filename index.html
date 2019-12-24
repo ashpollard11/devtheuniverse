@@ -21,8 +21,8 @@
 
 		<div id="app">
 			<div id="particles-js"></div>
-			<!-- <heading></heading> -->
-			<router-view :current-sequence="currentSequence" @updatesequence="updateSequence" ></router-view>
+			<header-component></header-component>
+			<router-view :content="content" ></router-view>
 			<!-- <footing></footing> -->
 		</div>
 
@@ -47,7 +47,7 @@
 		<script src="dist/js/content.js"></script>
 		<script src="dist/js/HomeComponent.js"></script>
 		<!-- <script src="dist/js/AboutComponent.js"></script> -->
-		<!-- <script src="dist/js/HeaderComponent.js"></script> -->
+		<script src="dist/js/HeaderComponent.js"></script>
 		<!-- <script src="dist/js/FooterComponent.js"></script> -->
 		<script src="dist/js/main.js"></script>
 
