@@ -52,13 +52,13 @@ var config = {
 			alt: "kr steakbar",
 			description: "KR Steakbar is an experimental website redesign for the restaurant.",
 			link: "teams2/index.html",
-			image: "../../dist/img/table80-3.jpg"
+			image: "../../dist/img/table80-3.png"
 		}, {
 			title: "Rick &amp; Morty Battles",
 			alt: "rick and morty battles",
 			description: "Rick &amp; Morty Battles is a small web-based two-player game where the user chooses a team of four characters to face off with their opponent's selected team.",
 			link: "vue/final/index.html",
-			image: "../../dist/img/rm-bg.jpg"
+			image: "../../dist/img/rm-bg.png"
 		}, {
 			title: "Around The Plate",
 			alt: "around the plate",

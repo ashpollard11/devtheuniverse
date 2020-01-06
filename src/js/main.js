@@ -1,9 +1,8 @@
 const router = new VueRouter({
 	routes: [
-		//{ path: '/', component: HomeComponent },
-		{ path: '/portfolio', component: HomeComponent },
+		{ path: '/', component: HomeComponent },
+		// { path: '/portfolio', component: HomeComponent },
 		// { path: '/about', component: AboutComponent },
-	//   { path: '/versus', component: VersusComponent }
 	]	// routes  short for `routes: routes`
 })
 
@@ -24,58 +23,9 @@ var app = new Vue({
 		this.content = config;
 	},
 	methods: {
-
-
-		// nextBubble: function(direction) {
-		// 	let nextDirection = this.currentBubble.i + direction;
-		// 	console.log("next bubble", nextDirection)
-		// 	this.currentBubble = this.projectData[nextDirection];
-		// },
-		// exitPortfolio: function() {
-		// 	this.currentBubble = this.projectData[0];
-		// },
-		// directSelectBubble: function(selection) {
-		// 	this.currentBubble = this.projectData[selection];
-		// }
+		
 	}
 })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// let menu = document.querySelector('.hamburger');
-// let nav = document.querySelector('.social');
-
-// menu.addEventListener('click', function(e) {
-// 	menu.classList.toggle('is-active');
-// 	nav.classList.toggle('is-active');
-// })
-
-// let logopath = document.querySelector(".logo-path");
-// let header = document.querySelector(".overlay");
-// let video = document.querySelector("video");
-// let title = document.querySelector(".dev-name");
-// let slogan = document.querySelector(".slogan");
-// let sideNav = document.querySelector(".side-nav");
-// let sideNavButton = document.querySelector(".nav-button");
-
-// let filterAll = document.querySelector(".all");
-// let filterDD = document.querySelector(".dd");
-// let filterDev = document.querySelector(".dev");
-// let filterGfx = document.querySelector(".gfx");
-
-// let filterButtons = document.querySelectorAll(".filterProjects");
-// let items = document.querySelectorAll(".dev-item");
 
 
 
@@ -101,36 +51,6 @@ var app = new Vue({
 
 // 	sideNav.style.opacity = 1;
 // }
-
-// sideNavButton.addEventListener("click", function(e) {
-// 	sideNav.classList.toggle("is-open");
-// 	sideNav.classList.toggle("is-closed");
-// 	sideNavButton.classList.toggle("is-open");
-// });
-
-// //filter buttons
-// filterButtons.forEach((button) => {
-// 	button.addEventListener("click", (e) => {
-// 		let filteredItems = Array.from(items);
-// 		filteredItems = filteredItems.filter((item) => {
-// 			item.classList.remove("filtered");
-// 			if (!item.classList.contains(button.id) && button.id !== "all") {
-// 				console.log(item)
-// 				item.classList.add("filtered");
-// 			}
-// 		})
-// 	})
-// })
-
-
-
-
-// var tl2 = new TimelineMax();
-
-
-
-
-
 
 
 //******particles*******
