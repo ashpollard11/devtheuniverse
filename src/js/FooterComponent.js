@@ -1,4 +1,4 @@
-let FooterComponent = Vue.component("footing", {
+let FooterComponent = Vue.component("footer-component", {
 	props: {},
 	template:
     `<footer>
@@ -28,6 +28,14 @@ let FooterComponent = Vue.component("footing", {
                 </a>
             </li>
         </ul>
+        <p class="copyright">
+            <span>&copy;</span> 2020 DevTheUniverse 
+        </p>
+        <p class="footer-blurb">
+            Made by me with 
+            <img src="../../dist/img/vue-icon.png" alt="vue icon">
+            <span>Vue.JS</span>
+        </p>
 	</footer>`,
 	data: function() {
 		return {

@@ -1,7 +1,7 @@
 $sm-mobile-breakpoint: 670px;
 $tablet-breakpoint: 768px;
 $desktop-breakpoint: 1024px;
-$large-desktop-breakpoint: 1024px;
+$max-breakpoint: 1280px;
 
 $dtu-blue: #b3e9fe;
 $dtu-white: #fffdf7;
@@ -30,8 +30,8 @@ $dtu-purple: #634099;
 	}
 }
 
-@mixin bp-large-desktop {
-	@media only screen and (min-height: $large-desktop-breakpoint) {
+@mixin bp-max {
+	@media only screen and (min-width: $max-breakpoint) {
 		@content;
 	}
 }

@@ -171,7 +171,7 @@ let HomeComponent = Vue.component("home", {
 	template:
 		`<div class="content">
 			<section class="hero-content" ref="hero_content">
-				<div ref="ash-icon" class="ash-icon" :src="iconSrc" :style="{ 'background-image': 'url(' + iconSrc + ')' }"></div>
+				<div ref="ash-icon" class="ash-icon" :style="{ 'background-image': 'url(' + iconSrc + ')' }"></div>
 				<blockquote class="blockquote-carousel">
 					<div class="carousel-container" ref="carousel_container" v-html="homeContent.blockquote_carousel"></div>
 				</blockquote>
@@ -182,55 +182,32 @@ let HomeComponent = Vue.component("home", {
 				</div>
 			</section>
 			<section class="about-content" ref="about_content">
-				<article>
+				<article v-for="(articles, i) in homeContent.about">
+					<div class="about-icons" v-html="articles.icon"></div>
 					<div class="article-head">
-						<h2>Front-End Developer</h2>
-						<p>I like to be experimental and push the boundaries of web development. Micro-interactions and finding visual balance are major parts of my process.</p>
+						<h2 v-html="articles.h2"></h2>
+						<p v-html="articles.article_head"></p>
 					</div>
 					<div class="toolbox">
-						<h3>My languages and toolbox includes:</h3>
-						<p>HTML</p>
-						<p>CSS</p>
-						<p>SCSS</p>
-						<p>JavaScript</p>
-						<p>Vue.JS</p>
-						<p>JSON</p>
-						<p>Gulp</p>
-						<p>Github</p>
-						<p>Bitbucket</p>
-						<p>Terminal</p>
+						<h3 v-html="articles.h3"></h3>
+						<ul>
+							<li v-for="(lines, i) in articles.toolbox" v-html="lines"></li>
+						</ul>
 					</div>
 				</article>
-				<article>
-					<div class="article-head">
-						<h2>Game Developer</h2>
-						<p>I build games that are visually exciting, challenging, creative, and most of all, <span>fun!</span> Game development gives me a unique advantage as a problem solver that explores countless puzzles and solutions.</p>
-					</div>
-					<div class="toolbox">
-						<h3>My toolbox also includes:</h3>
-						<p>PIXI.JS</p>
-						<p>Create.JS</p>
-						<p>Spine Animation Development</p>
-						<p>Adobe Animation Development</p>
-						<p>Unity</p>
-						<p>C#</p>
-					</div>
+			</section>
+			<section class="work-content">
+				<h2>My Portfolio</h2>
+				<article v-for="(item, i) in homeContent.work">
+				<img :src="item.image" alt="item.title">
+				<h3 v-html="item.title"></h3>
+				<p class="description" v-html="item.description"></p>
+				<a :href="item.link" target="_blank">view</a>
 				</article>
-				<article>
-					<div class="article-head">
-						<h2>Illustrator</h2>
-						<p>My career started with illustration, and that paved the way for me to become a developer. Overall, my passion lies in creating art.</p>
-					</div>
-					<div class="toolbox">
-						<h3>My tools include:</h3>
-						<p>Adobe Illustrator</p>
-						<p>Adobe Photophop</p>
-						<p>Graphite/Pen &amp; Paper</p>
-						<p>Acrylic and Watercolor Paint</p>
-						<p>Color Pencils</p>
-						<p>Anything I can use to draw, really.</p>
-					</div>
-				</article>
+			</section>
+			<section class="more-content">
+				<p>Want to view more of my work or collaborate?</p>
+				<a>email me</a>
 			</section>
 		</div>`,
 	data: function() {
@@ -311,7 +288,7 @@ let HomeComponent = Vue.component("home", {
 	}
 })
 
-{/* <img v-bind:src="project.image" alt="project.title"> */}
+{/* <img :src="project.image" alt="project.title"> */}
 
 
 {/* <div class="arrow" role="button" ref="arrow" @click="nextSequence()">
