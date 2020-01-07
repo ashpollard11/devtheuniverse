@@ -218,8 +218,14 @@ body h1 {
 	font-size: 24px;
 }
 
+@media only screen and (min-width: 1024px) {
+	body h1 {
+		font-size: 26px;
+	}
+}
+
 body h2 {
-	font-size: 22px;
+	font-size: 24px;
 }
 
 body p {
@@ -256,10 +262,8 @@ body p {
 	padding: 1em;
 }
 
-@media only screen and (min-width: 1024px) {
-	#app .hero-content, #app .about-content {
-		height: 90vh;
-	}
+#app .about-content, #app .work-content {
+	max-width: 1062px;
 }
 
 #app .about-content, #app .work-content, #app .work-content h2 {
@@ -306,6 +310,7 @@ body p {
 #app .content .hero-content {
 	position: relative;
 	width: 100%;
+	height: 90vh;
 	color: #0f0f11;
 	text-align: center;
 }
@@ -351,13 +356,7 @@ body p {
 }
 
 #app .content .hero-content .scroll-prompt {
-	margin: 0 0 10px 0;
-}
-
-@media only screen and (min-width: 1024px) {
-	#app .content .hero-content .scroll-prompt {
-		margin: 70px 0 10px 0;
-	}
+	margin: auto;
 }
 
 #app .content .hero-content .scroll-prompt p {
@@ -369,6 +368,7 @@ body p {
 	background-repeat: no-repeat;
 	width: 35px;
 	height: 35px;
+	cursor: pointer;
 }
 
 #app .content .hero-content ul {
@@ -418,6 +418,7 @@ body p {
 
 @media only screen and (min-width: 1024px) {
 	#app .content .about-content {
+		height: 655px;
 		-webkit-flex-flow: row;
 		-ms-flex-flow: row;
 		flex-flow: row;
@@ -475,11 +476,10 @@ body p {
 
 @media only screen and (min-width: 1024px) {
 	#app .content .about-content article {
-		width: 33%;
 		height: 100%;
 		border-radius: 5px;
 		border-bottom: none;
-		margin: 0 3px 0 0;
+		margin: 0 2px 0 0;
 	}
 }
 
@@ -614,7 +614,7 @@ body p {
 	text-decoration: none;
 	text-transform: uppercase;
 	color: #fffdf7;
-	border: 1px solid #35b0ab;
+	border: 2px solid #35b0ab;
 	padding: 20px 1.7em;
 	border-radius: 40px;
 	z-index: 1;
@@ -629,6 +629,7 @@ body p {
 #app .content .more-content {
 	width: 100%;
 	text-align: center;
+	padding: 0 1em;
 }
 
 #app .content .more-content p {
@@ -678,13 +679,17 @@ body p {
 #app footer ul li svg {
 	width: 50px;
 	padding: 0.3em;
-	border: 1px solid #35b0ab;
+	border: 2px solid #35b0ab;
 	border-radius: 100%;
 	transition: 0.33s ease-in;
 }
 
 #app footer ul li svg:hover {
 	background: #35b0ab;
+}
+
+#app footer ul li svg:hover path, #app footer ul li svg:hover circle {
+	fill: #fffdf7;
 }
 
 #app footer .copyright {
@@ -722,18 +727,13 @@ body p {
 	margin-left: -10px;
 }
 
-#app::-webkit-scrollbar {
+body::-webkit-scrollbar {
 	width: 6px;
 }
 
-#app::-webkit-scrollbar-track {
-	background: #ccc;
-	border-radius: 6px;
-}
-
-#app::-webkit-scrollbar-thumb {
+body::-webkit-scrollbar-thumb {
 	width: 0.3em;
-	background: #0f0f11;
+	background: #b3e9fe;
 	border-radius: 6px;
 }
 

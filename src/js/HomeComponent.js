@@ -12,7 +12,7 @@ let HomeComponent = Vue.component("home", {
 				<h1 v-for="(lines, i) in homeContent.h1" v-html="lines"></h1>
 				<div class="scroll-prompt">
 					<p>learn more about my work</p>
-					<div ref="scroll_arrow" class="scroll-arrow" :src="arrowSrc" :style="{ 'background-image': 'url(' + arrowSrc + ')' }"></div>
+					<div role="button" ref="scroll_arrow" class="scroll-arrow" :src="arrowSrc" :style="{ 'background-image': 'url(' + arrowSrc + ')' }" @click="onScroll()"></div>
 				</div>
 			</section>
 			<section class="about-content" ref="about_content">
@@ -36,7 +36,7 @@ let HomeComponent = Vue.component("home", {
 				<img :src="item.image" alt="item.title">
 				<h3 v-html="item.title"></h3>
 				<p class="description" v-html="item.description"></p>
-				<a :href="item.link" target="_blank">view</a>
+				<a :href="item.link" target="_blank" class="button">view</a>
 				</article>
 			</section>
 			<section class="more-content">
@@ -91,6 +91,9 @@ let HomeComponent = Vue.component("home", {
 					TweenMax.delayedCall(3, () => this.runCarousel());
 				}
 			}});
+		},
+		onScroll: function() {
+			TweenMax.to(window, 1.75, {scrollTo: window.innerHeight, ease: Power2.easeInOut});
 		}
 	}
 })
