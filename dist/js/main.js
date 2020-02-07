@@ -1,64 +1,23 @@
 'use strict';
 
 var router = new VueRouter({
-	routes: [
-	//{ path: '/', component: HomeComponent },
-	{ path: '/portfolio', component: HomeComponent }, { path: '/about', component: AboutComponent }] // routes  short for `routes: routes`
+	routes: [{ path: '/', component: HomeComponent }] // routes  short for `routes: routes`
 });
 
 var app = new Vue({
 	el: '#app',
 	router: router,
 	data: {
-		projectData: Object,
-		currentBubble: Object
+		content: Object
 	},
 	watch: {},
 	computed: {},
 	created: function created() {
-		router.push('/portfolio');
-		this.projectData = projectDataset;
-		this.currentBubble = this.projectData[0];
+		// router.push('/portfolio');
+		this.content = config;
 	},
-	methods: {
-		nextBubble: function nextBubble(direction) {
-			var nextDirection = this.currentBubble.i + direction;
-			console.log("next bubble", nextDirection);
-			this.currentBubble = this.projectData[nextDirection];
-		},
-		exitPortfolio: function exitPortfolio() {
-			this.currentBubble = this.projectData[0];
-		},
-		directSelectBubble: function directSelectBubble(selection) {
-			this.currentBubble = this.projectData[selection];
-		}
-	}
+	methods: {}
 });
-
-// let menu = document.querySelector('.hamburger');
-// let nav = document.querySelector('.social');
-
-// menu.addEventListener('click', function(e) {
-// 	menu.classList.toggle('is-active');
-// 	nav.classList.toggle('is-active');
-// })
-
-// let logopath = document.querySelector(".logo-path");
-// let header = document.querySelector(".overlay");
-// let video = document.querySelector("video");
-// let title = document.querySelector(".dev-name");
-// let slogan = document.querySelector(".slogan");
-// let sideNav = document.querySelector(".side-nav");
-// let sideNavButton = document.querySelector(".nav-button");
-
-// let filterAll = document.querySelector(".all");
-// let filterDD = document.querySelector(".dd");
-// let filterDev = document.querySelector(".dev");
-// let filterGfx = document.querySelector(".gfx");
-
-// let filterButtons = document.querySelectorAll(".filterProjects");
-// let items = document.querySelectorAll(".dev-item");
-
 
 // var tl = new TimelineMax();
 
@@ -83,29 +42,6 @@ var app = new Vue({
 // 	sideNav.style.opacity = 1;
 // }
 
-// sideNavButton.addEventListener("click", function(e) {
-// 	sideNav.classList.toggle("is-open");
-// 	sideNav.classList.toggle("is-closed");
-// 	sideNavButton.classList.toggle("is-open");
-// });
-
-// //filter buttons
-// filterButtons.forEach((button) => {
-// 	button.addEventListener("click", (e) => {
-// 		let filteredItems = Array.from(items);
-// 		filteredItems = filteredItems.filter((item) => {
-// 			item.classList.remove("filtered");
-// 			if (!item.classList.contains(button.id) && button.id !== "all") {
-// 				console.log(item)
-// 				item.classList.add("filtered");
-// 			}
-// 		})
-// 	})
-// })
-
-
-// var tl2 = new TimelineMax();
-
 
 //******particles*******
 
@@ -113,10 +49,10 @@ var app = new Vue({
 particlesJS("particles-js", {
 	particles: {
 		number: { value: 160, density: { enable: true, value_area: 800 } },
-		color: { value: "#ff6d00" },
+		color: { value: "#b3e9fe" },
 		shape: {
 			type: "circle",
-			stroke: { width: 0, color: "#000000" },
+			stroke: { width: 0, color: "#b3e9fe" },
 			polygon: { nb_sides: 5 },
 			image: { src: "img/github.svg", width: 100, height: 100 }
 		},

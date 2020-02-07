@@ -13,7 +13,11 @@
 		"no-useless-return": 1,
 		"no-shadow": 1,
 		"comma-dangle": [0, "always-multiline"],
+<<<<<<< HEAD
 		"object-property-newline": [""],
+=======
+		"object-property-newline": 0,
+>>>>>>> website-development
 		"semi": 0
 	}
 }
