@@ -742,4 +742,28 @@ body::-webkit-scrollbar-thumb {
 	border-radius: 6px;
 }
 
+.wrapper {
+	width: 650px;
+	height: 100vh;
+}
+
+.wrapper svg {
+	overflow: visible;
+	width: 300px;
+	transform: rotate(180deg);
+}
+
+.wrapper .curve {
+	fill: transparent;
+}
+
+.wrapper .curve1 {
+	transform: translate(-400px, -400px);
+}
+
+.wrapper text {
+	fill: #FF9800;
+	font-size: 36px;
+}
+
 /*# sourceMappingURL=main.css.map */

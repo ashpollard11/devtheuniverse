@@ -599,3 +599,47 @@ body::-webkit-scrollbar-thumb {
 //     	background-blend-mode: luminosity;}
 // }
 
+.wrapper {
+	width: 650px;
+	height: 100vh;
+	
+	svg {
+	  overflow: visible;
+	  width: 300px;
+	  transform: rotate(180deg);
+	}
+	
+	.curve {
+	  fill: transparent;
+	}
+
+	.curve1 {
+		transform: translate(-400px, -400px);
+	}
+
+	.frame2 {
+		// display: none;
+	}
+  
+	text {
+	  fill: #FF9800;
+	  font-size: 36px;
+	}
+
+	// #curve1_textpath, #curve1_textpath tspan {
+	// 	animation-duration: 1s;
+	// 	animation-fill-mode: both;
+	// }
+	
+	// #curve1_textpath tspan { 
+	// 	display: inline-block;
+	// 	animation: leSnake 1.5s ease-in-out;
+	// 	animation-iteration-count: infinite;
+	// }
+	
+	// @keyframes leSnake {
+	// 	from, to { transform: translateY(0px) }
+	// 	50% { transform: translateY(30px) }
+	// }
+}
+

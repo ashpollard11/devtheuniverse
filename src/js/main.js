@@ -1,7 +1,7 @@
 const router = new VueRouter({
 	routes: [
 		{ path: '/', component: HomeComponent },
-		// { path: '/portfolio', component: HomeComponent },
+		{ path: '/internal', component: InternalComponent },
 		// { path: '/about', component: AboutComponent },
 	]	// routes  short for `routes: routes`
 })

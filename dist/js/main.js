@@ -1,7 +1,7 @@
 'use strict';
 
 var router = new VueRouter({
-	routes: [{ path: '/', component: HomeComponent }] // routes  short for `routes: routes`
+	routes: [{ path: '/', component: HomeComponent }, { path: '/internal', component: InternalComponent }] // routes  short for `routes: routes`
 });
 
 var app = new Vue({
