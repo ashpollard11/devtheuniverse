@@ -766,4 +766,9 @@ body::-webkit-scrollbar-thumb {
 	font-size: 36px;
 }
 
+.wrapper .curve2 {
+	stroke: #3f51b5;
+	stroke-width: 2;
+}
+
 /*# sourceMappingURL=main.css.map */
