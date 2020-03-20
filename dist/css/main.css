@@ -743,22 +743,21 @@ body::-webkit-scrollbar-thumb {
 }
 
 .wrapper {
-	width: 650px;
+	width: 100%;
 	height: 100vh;
 }
 
 .wrapper svg {
 	overflow: visible;
-	width: 300px;
+	width: 100%;
+	height: 100%;
 	transform: rotate(180deg);
 }
 
 .wrapper .curve {
 	fill: transparent;
-}
-
-.wrapper .curve1 {
-	transform: translate(-400px, -400px);
+	stroke: #3f51b5;
+	stroke-width: 2;
 }
 
 .wrapper text {
@@ -766,9 +765,19 @@ body::-webkit-scrollbar-thumb {
 	font-size: 36px;
 }
 
-.wrapper .curve2 {
-	stroke: #3f51b5;
-	stroke-width: 2;
+.wrapper #curve1_textpath tspan {
+	display: inline-block;
+	animation: leSnake 1.5s ease-in-out;
+	animation-iteration-count: infinite;
+}
+
+@keyframes leSnake {
+	from, to {
+		transform: translateY(0px);
+	}
+	50% {
+		transform: translateY(30px);
+	}
 }
 
 /*# sourceMappingURL=main.css.map */
