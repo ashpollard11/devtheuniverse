@@ -612,21 +612,18 @@ body::-webkit-scrollbar-thumb {
 	
 	.curve {
 	  fill: transparent;
-	  stroke: #3f51b5;
-	  stroke-width: 2;
-	}
-
-	.frame2 {
-		// display: none;
+	//   stroke: #3f51b5;
+	  stroke-width: 20;
 	}
   
 	text {
 	  fill: #FF9800;
-	  font-size: 36px;
+	  font-size: 30px;
+	  transform: rotate(180deg) translate(-100%, -75%);
 	}
 
-	.curve2 {
-
+	.morph-frame {
+		display: none;
 	}
 
 	// #curve1_textpath, #curve1_textpath tspan {

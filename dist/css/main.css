@@ -756,13 +756,17 @@ body::-webkit-scrollbar-thumb {
 
 .wrapper .curve {
 	fill: transparent;
-	stroke: #3f51b5;
-	stroke-width: 2;
+	stroke-width: 20;
 }
 
 .wrapper text {
 	fill: #FF9800;
-	font-size: 36px;
+	font-size: 30px;
+	transform: rotate(180deg) translate(-100%, -75%);
+}
+
+.wrapper .morph-frame {
+	display: none;
 }
 
 .wrapper #curve1_textpath tspan {
