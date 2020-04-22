@@ -1,0 +1,91 @@
+////OLD WEBSITE///
+
+// 	.ribbon-container {
+// 		width: 320px;
+// 		height: 320px;
+// 		border-radius: 50%;
+// 		display: flex;
+// 		position: relative;
+// 		overflow: hidden;
+	
+// 		box-shadow:
+// 		inset 0 0 50px #fff,
+// 		inset 20px 0 80px #ff6d00,
+// 		inset -20px 0 80px #04f,
+// 		inset 20px 0 300px #f0f,
+// 		inset -20px 0 300px #0ff,
+// 		0 0 50px #fff,
+// 		-10px 0 80px #f0f,
+// 		10px 0 80px #0ff;
+
+
+// @keyframes ani-bg {
+// 	0% {background-color: rgba(119, 77, 192, 0.4);
+//     	background-blend-mode: luminosity;}
+//     25% {background-color: rgba(192, 77, 106, 0.7);
+//     	background-blend-mode: luminosity;}
+//     50% {background-color: rgba(23, 216, 242, 0.6);
+//     	background-blend-mode: luminosity;}
+//     75% {background-color: rgba(144, 216, 20, 0.5);
+//     	background-blend-mode: luminosity;}
+//     100% {background-color: rgba(119, 77, 192, 0.4);
+//     	background-blend-mode: luminosity;}
+// }
+
+// @keyframes ani-bg-path {
+// 	0% {fill: rgba(119, 77, 192, 1);
+//     	background-blend-mode: luminosity;}
+//     25% {fill: rgba(192, 77, 106, 1);
+//     	background-blend-mode: luminosity;}
+//     50% {fill: rgba(23, 216, 242, 1);
+//     	background-blend-mode: luminosity;}
+//     75% {fill: rgba(144, 216, 20, 1);
+//     	background-blend-mode: luminosity;}
+//     100% {fill: rgba(119, 77, 192, 1);
+//     	background-blend-mode: luminosity;}
+// }
+
+
+.wrapper {
+	width: 100%;
+	height: 100vh;
+	
+	svg {
+	  overflow: visible;
+	  width: 100%;
+	  height: 100%;
+	  transform: rotate(180deg);
+	}
+	
+	.curve {
+	  fill: transparent;
+	//   stroke: #3f51b5;
+	  stroke-width: 20;
+	}
+  
+	text {
+	  fill: #FF9800;
+	  font-size: 30px;
+	  transform: rotate(180deg) translate(-100%, -75%);
+	}
+
+	.morph-frame {
+		display: none;
+	}
+
+	// #curve1_textpath, #curve1_textpath tspan {
+	// 	animation-duration: 1s;
+	// 	animation-fill-mode: both;
+	// }
+	
+	#curve1_textpath tspan { 
+		display: inline-block;
+		animation: leSnake 1.5s ease-in-out;
+		animation-iteration-count: infinite;
+	}
+	
+	@keyframes leSnake {
+		from, to { transform: translateY(0px) }
+		50% { transform: translateY(30px) }
+	}
+}

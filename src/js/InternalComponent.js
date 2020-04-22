@@ -118,7 +118,7 @@ let InternalComponent = Vue.component("internal", {
 			// }
 			// this.$refs.curve1.style.transform = "translate(" + adjustedCoords.x + "px, " + adjustedCoords.y + "px)";
 			
-			this.currentPos = { x: e.x, y: e.y };
+			this.currentPos = { x: parseInt(e.x), y: parseInt(e.y) };
 			if (this.morphTl !== "undefined") this.morphTl.clear();
 
 			TweenMax.delayedCall(5, () => {
