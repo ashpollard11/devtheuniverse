@@ -97,7 +97,7 @@ body {
 		@include align-items(center);
 	}
 
-	header, .hero-content, .about-content, .about-content article {
+	header, .hero-content, .about-content article {
 		padding: 1em;
 	}
 
@@ -259,11 +259,12 @@ body {
 
 		.about-content {
 			width: 100%;
+			padding: 2em 1em;
 			background: $dtu-green;
 			text-align: center;
 
 			@include bp-desktop {
-				height: 655px;
+				height: 85vh;
 				@include flex-flow(row);
 				@include justify-content(center);
 			}
@@ -321,7 +322,7 @@ body {
 				}
 
 				@include bp-desktop {
-					width: 25%;
+					width: 33%;
 					max-width: 340px;
 					height: 100%;
 					border-radius: 5px;
@@ -334,7 +335,8 @@ body {
 		.work-content {
 			width: 90%;
 
-			@include bp-desktop {
+			@include bp-tablet {
+				width: 96%;
 				@include inline-flex;
 				@include flex-flow(row wrap);
 				@include justify-content(center);
@@ -350,7 +352,6 @@ body {
 				@include align-items(center);
 				@include justify-content(center);
 				position: relative;
-				// width: 330px;
 				width: 100%;
 				height: 330px;
 				margin: 0 0 1em 0;
@@ -361,19 +362,25 @@ body {
 				overflow: hidden;
 				transition: 0.6s ease-in;
 
-				&:last-child {
-					margin: 0;
-				}
+				// &:last-child {
+				// 	margin: 0;
+				// }
 
-				@include bp-desktop {
-					width: 49%;
+				@include bp-tablet{
+					width: 32%;
+					height: 230px;
+					margin: 0 0.25em 0.5em 0.25em;
 
-					&:nth-of-type(odd) {
-						margin: 0 1em 1em 0;
-					}
+					// &:nth-of-type(odd) {
+					// 	margin: 0 1em 1em 0;
+					// }
 
-					&:last-child {
-						margin: 0 0 1em 0;
+					// &:last-child {
+					// 	margin: 0 0 1em 0;
+					// }
+
+					@include bp-desktop {
+						width: 32.3%;
 					}
 				}
 

@@ -284,7 +284,7 @@ body p {
 	align-items: center;
 }
 
-#app header, #app .hero-content, #app .about-content, #app .about-content article {
+#app header, #app .hero-content, #app .about-content article {
 	padding: 1em;
 }
 
@@ -418,13 +418,14 @@ body p {
 
 #app .content .about-content {
 	width: 100%;
+	padding: 2em 1em;
 	background: #35b0ab;
 	text-align: center;
 }
 
 @media only screen and (min-width: 1024px) {
 	#app .content .about-content {
-		height: 655px;
+		height: 85vh;
 		flex-flow: row;
 		justify-content: center;
 	}
@@ -474,7 +475,7 @@ body p {
 
 @media only screen and (min-width: 1024px) {
 	#app .content .about-content article {
-		width: 25%;
+		width: 33%;
 		max-width: 340px;
 		height: 100%;
 		border-radius: 5px;
@@ -487,8 +488,9 @@ body p {
 	width: 90%;
 }
 
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 768px) {
 	#app .content .work-content {
+		width: 96%;
 		display: inline-flex;
 		flex-flow: row wrap;
 		justify-content: center;
@@ -516,19 +518,17 @@ body p {
 	transition: 0.6s ease-in;
 }
 
-#app .content .work-content article:last-child {
-	margin: 0;
+@media only screen and (min-width: 768px) {
+	#app .content .work-content article {
+		width: 32%;
+		height: 230px;
+		margin: 0 0.25em 0.5em 0.25em;
+	}
 }
 
-@media only screen and (min-width: 1024px) {
+@media only screen and (min-width: 768px) and (min-width: 1024px) {
 	#app .content .work-content article {
-		width: 49%;
-	}
-	#app .content .work-content article:nth-of-type(odd) {
-		margin: 0 1em 1em 0;
-	}
-	#app .content .work-content article:last-child {
-		margin: 0 0 1em 0;
+		width: 32.3%;
 	}
 }
 

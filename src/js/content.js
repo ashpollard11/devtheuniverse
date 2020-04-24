@@ -16,11 +16,10 @@ const config = {
 					"CSS / SCSS",
 					"JavaScript",
 					"Vue.JS",
-					"Gatsby.JS",
+					"Gatsby.JS (React)",
 					"Wordpress",
-					"Gulp",//lets eventually replace this with command line
-					"Github",
-					"Bitbucket"
+					"Github & Bitbucket",
+					"VS Code"
 				]
 			},
 			{
@@ -52,6 +51,20 @@ const config = {
 			}
 		],
 		work: [
+			{
+				title: "Digital Hands",
+				alt: "digital hands",
+				description: "Digital Hands is a Managed Security Sevice Provider that makes enterprise-grade cybersecurity services and support accessible to the mid-market and beyond.",
+				link: "https://www.digitalhands.com/",
+				image: "../../dist/img/digitalhands.svg",
+			},
+			{
+				title: "Carr & Weatherby",
+				alt: "carr and weatherby",
+				description: "Carr & Weatherby is an accomplished, accessible, and respected civil trial firm based in Atlanta, Georgia representing clients throughout the United States.",
+				link: "https://www.wpcarr.com/",
+				image: "../../dist/img/hands-cr.png",
+			},
 			{
 				title: "Dinosaur Train",
 				alt: "dinosaur train dino flight",
@@ -101,13 +114,13 @@ const config = {
 				link: "vue/final/index.html",
 				image: "../../dist/img/rm-bg.png",
 			},
-			{
-				title: "Around The Plate",
-				alt: "around the plate",
-				description: "Around The Plate is a mobile app mockup used to search for recipes from almost any country in the world.",
-				link: "ajax/index.html",
-				image: "../../dist/img/around-the-plate.png",
-			},
+			// {
+			// 	title: "Around The Plate",
+			// 	alt: "around the plate",
+			// 	description: "Around The Plate is a mobile app mockup used to search for recipes from almost any country in the world.",
+			// 	link: "ajax/index.html",
+			// 	image: "../../dist/img/around-the-plate.png",
+			// },
 			// {
 			// 	title: "Aesthetic Me",
 			// 	alt: "aesthetic me",
