@@ -547,8 +547,22 @@ body p {
 	color: #fffdf7;
 }
 
+@media only screen and (min-width: 768px) {
+	#app .content .work-content article .description {
+		padding-bottom: 0;
+	}
+}
+
 #app .content .work-content article .description, #app .content .work-content article a {
 	opacity: 0;
+	visibility: hidden;
+}
+
+@media only screen and (min-width: 768px) {
+	#app .content .work-content article a {
+		margin-top: auto;
+		margin-bottom: 1em;
+	}
 }
 
 #app .content .work-content article img {
@@ -575,6 +589,7 @@ body p {
 
 #app .content .work-content article:hover .description, #app .content .work-content article:hover a {
 	opacity: 1;
+	visibility: visible;
 }
 
 #app .content .work-content img, #app .content .work-content h3, #app .content .work-content .description, #app .content .work-content a, #app .content .more-content img, #app .content .more-content h3, #app .content .more-content .description, #app .content .more-content a {

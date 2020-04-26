@@ -54,14 +54,14 @@ const config = {
 			{
 				title: "Digital Hands",
 				alt: "digital hands",
-				description: "Digital Hands is a Managed Security Sevice Provider that makes enterprise-grade cybersecurity services and support accessible to the mid-market and beyond.",
+				description: "Digital Hands makes enterprise-grade cybersecurity services and support accessible to the mid-market and beyond.",
 				link: "https://www.digitalhands.com/",
 				image: "../../dist/img/digitalhands.svg",
 			},
 			{
 				title: "Carr & Weatherby",
 				alt: "carr and weatherby",
-				description: "Carr & Weatherby is an accomplished, accessible, and respected civil trial firm based in Atlanta, Georgia representing clients throughout the United States.",
+				description: "Carr & Weatherby is a civil trial firm based in Atlanta, Georgia representing clients throughout the United States.",
 				link: "https://www.wpcarr.com/",
 				image: "../../dist/img/hands-cr.png",
 			},
@@ -89,7 +89,7 @@ const config = {
 			{
 				title: "Across The Campus",
 				alt: "across the campus",
-				description: "Across The Campus is an online bulletin board-style forum for college and university campus events, inquiries and other classified posts.",
+				description: "Across The Campus is an online bulletin-style forum for college and university campus events, inquiries and other classified posts.",
 				link: "node/index.html",
 				image: "../../dist/img/across-the-campus.png",
 			},
@@ -103,14 +103,14 @@ const config = {
 			{
 				title: "KR Steakbar",
 				alt: "kr steakbar",
-				description: "KR Steakbar is an experimental website redesign for the restaurant.",
+				description: "KR Steakbar is an experimental website redesign for the world-renowned restaurant.",
 				link: "teams2/index.html",
 				image: "../../dist/img/table80-3.png",
 			},
 			{
 				title: "Rick &amp; Morty Battles",
 				alt: "rick and morty battles",
-				description: "Rick &amp; Morty Battles is a small web-based two-player game where the user chooses a team of four characters to face off with their opponent's selected team.",
+				description: "Rick &amp; Morty Battles is a small web-based two-player game where the user chooses a team of characters to face off with their opponent's selected team.",
 				link: "vue/final/index.html",
 				image: "../../dist/img/rm-bg.png",
 			},
