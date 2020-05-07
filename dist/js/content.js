@@ -24,6 +24,12 @@ var config = {
       toolbox: ["Adobe Illustrator", "Adobe Photoshop", "Graphite / Ink Pen &amp; Paper", "Acrylic and Watercolor Paint", "Colored Pencils &amp; Markers"]
     }],
     work: [{
+      title: "PBS (2020)",
+      alt: "pbs",
+      description: "Play and Learn Engineering is an educational, fun-filled app that helps kids learn through play.",
+      link: "https://pbskids.org/apps/play-and-learn-engineering.html",
+      image: "../../dist/img/pbsapp.jpg"
+    }, {
       title: "Wild Places (2020)",
       alt: "wild places",
       description: "Wild Places is an identities company and branding studio and an affiliate of Oust and Ritual.",
@@ -77,13 +83,14 @@ var config = {
       description: "KR Steakbar is an experimental website redesign for the world-renowned restaurant.",
       link: "teams2/",
       image: "../../dist/img/table80-3.png"
-    }, {
-      title: "Rick &amp; Morty Battles (2018)",
-      alt: "rick and morty battles",
-      description: "Rick &amp; Morty Battles is a small web-based two-player game where the user chooses a team of characters to face off with their opponent's selected team.",
-      link: "vue/final/",
-      image: "../../dist/img/rm-bg.png"
-    }, {
+    }, // {
+    // 	title: "Rick &amp; Morty Battles (2018)",
+    // 	alt: "rick and morty battles",
+    // 	description: "Rick &amp; Morty Battles is a small web-based two-player game where the user chooses a team of characters to face off with their opponent's selected team.",
+    // 	link: "vue/final/",
+    // 	image: "../../dist/img/rm-bg.png",
+    // },
+    {
       title: "Around The Plate (2018)",
       alt: "around the plate",
       description: "Around The Plate is a mobile app mockup used to search for recipes from almost any country in the world.",
