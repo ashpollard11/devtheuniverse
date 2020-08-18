@@ -179,8 +179,8 @@ $dtu-purple: #634099;
 
 @mixin flex($values) {
 	-webkit-box-flex: $values;
--moz-box-flex:  $values;
--ms-flex:  $values;
--webkit-flex:  $values;
-flex:  $values;
+	-moz-box-flex:  $values;
+	-ms-flex:  $values;
+	-webkit-flex:  $values;
+	flex:  $values;
 }
